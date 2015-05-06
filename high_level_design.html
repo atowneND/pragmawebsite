@@ -97,51 +97,254 @@
             <div class="row">
                 <div class="col-lg-5 col-sm-6">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">Cats are pretty cool.<br>Squee</h2>
-                    <p class="lead"><h1>Dennis the Peasant</h1>
-                    <p>I don't want to talk to you no more, you empty-headed
-                    animal food trough water! I fart in your general direction!
-                    Your mother was a hamster and your father smelt of
-                    elderberries! Now leave before I am forced to taunt you a
-                    second time! Well, what do you want? On second thoughts,
-                    let's not go there. It is a silly place.</p>
-                    <h2>First shalt thou take out the Holy Pin</h2>
-                    <p>Be quiet! It's only a model. Why do you think that she
-                    is a witch? I am your king. On second thoughts, let's not
-                    go there. It is a silly place. You don't vote for
-                    kings.</p>
+                    <h1 class="section-heading">High Level Design</h1>
+                    <a href="refs/HLD.pdf">View PDF</a>
+                    <br>
+                    <p class="lead"><h2>Introduction</h2>
+                    <p>There is an effort in the College of Engineering to
+                    improve the freshman engineering course (EE 10111-10112)
+                    and make the course more interesting and educational.  One
+                    of the problems relevant to EE senior design is that there
+                    is not an adequate introduction to the fun side of
+                    electrical engineering that teaches fundamental concepts of
+                    what electrical engineers do.</p>
+                    <br>
+                    <h2>Problem Statement and Proposed Solution</h2>
+                    <p>Our goal is to create an engaging module for the
+                    freshman engineering course representative of the different
+                    applications of EE in the real world.  There is presently
+                    little exposure to EE concepts in the freshman course.  In
+                    addition to emphasizing civil engineering, computer
+                    science, and robotics, the freshman course should contain a
+                    module that focuses on circuits and signal processing,
+                    clearly expresses what EE entails, and sparks interest in
+                    the field among the freshmen. The concepts fundamental to
+                    EE are also transferrable skills among different
+                    engineering disciplines, such as familiarity with
+                    microcontrollers, filters, and circuits.</p>
+                    <p>The proposed solution is a new EE learning module, using
+                    an EE Toolbox that will contain components to allow
+                    students to gain an introduction to the different aspects
+                    of EE.  The Toolbox will be an interactive learning
+                    environment designed to cover the basics of the Learning
+                    Objectives (listed below). In order to achieve these
+                    learning objectives, the Toolbox will contain many
+                    components, also listed below.</p>
                     <ul>
-                        <li>It's only a model.</li>
-                        <li>Why?</li>
+                        <li>Learning objectives</li>
+                        <ul>
+                            <li>basic signal processing: waveforms,
+                            waveform synthesis, basic signal analysis in
+                            time/frequency domains. Students would have the
+                            ability to input a waveform (audio signal) through
+                            the audio jack or signal generator and have the
+                            software process it digitally using preprogrammed
+                            digital filters.</li>
+                            <li>RC circuits and software digital equivalents:
+                            The signal can be passed through the breadboard,
+                            using predesigned or student-initiated
+                            circuits.</li>
+                        </ul>
+                        <li>Components</li>
+                        <ul>
+                            <li>Breadboard/circuit components/sensors</li>
+                            <li>Signal generator</li>
+                            <li>Display (LEDs, screen/output)</li>
+                            <li>Audio I/O</li>
+                        </ul>
                     </ul>
-                    <h3>Makes Ben Hur look like an Epic!</h3>
-                    <p>Knights of Ni, we are but simple travelers who seek the
-                    enchanter who lives beyond these woods. How do you know she
-                    is a witch? The Lady of the Lake, her arm clad in the
-                    purest shimmering samite, held aloft Excalibur from the
-                    bosom of the water, signifying by divine providence that I,
-                    Arthur, was to carry Excalibur. That is why I am your
-                    king.</p>
-                    <h4>Blue. No, yel&hellip;</h4>
-                    <p>Where'd you get the coconuts? The Lady of the Lake, her
-                    arm clad in the purest shimmering samite, held aloft
-                    Excalibur from the bosom of the water, signifying by divine
-                    providence that I, Arthur, was to carry Excalibur. That is
-                    why I am your king. Look, my liege! He hasn't got shit all
-                    over him.</p>
-                    <ol>
-                        <li>Bring her forward!</li>
-                        <li>I am your king.</li>
-                    </ol>
-                    <h5>Sets The Cinema Back 900 Years!</h5>
-                    <p>A newt? Well, I didn't vote for you. Ni! Ni! Ni! Ni!
-                    Bring her forward!</p></p>
-                </div>
-                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
                     <br>
+                    <h2>System Requirements</h2>
+                    <ul>
+                        <li>Power</li>
+                        <ul>
+                            <li>rechargeable battery, 2 hours active use</li>
+                            <li>wall plug and adaptor</li>
+                            <li>button or switch</li>
+                        </ul>
+                        <li>Generate a signal</li>
+                        <ul>
+                            <li>AC/DC</li>
+                            <ul>
+                                <li>sinusoid generator</li>
+                                <li>amplifier</li>
+                            </ul>
+                            <li>3V maximum</li>
+                        </ul>
+                        <li>User interface</li>
+                        <ul>
+                            <li>input</li>
+                            <ul>
+                                <li>menu of options</li>
+                                <li>buttons to select options</li>
+                            </ul>
+                            <li>output</li>
+                            <ul>
+                                <li>plot graphs of signals</li>
+                                <li>toggle between time and frequency
+                                domains</li>
+                            </ul>
+                        </ul>
+                        <li>Breadboard</li>
+                        <ul>
+                            <li>Able to accept an input signal from the
+                            microcontroller</li>
+                            <li>Prebuilt circuitry</li>
+                            <ul>
+                                <li>Hardware plugins consisting of prebuilt circuits
+                                for students to put on the breadboard and connect
+                                to their simpler circuits</li>
+                                <li>Needs to be compatible with the breadboard and easy
+                                to use</li>
+                            </ul>
+                        </ul>
+                        <li>Audio I/O</li>
+                        <ul>
+                            <li>Audio jack</li>
+                            <li>Speakers</li>
+                            <ul>
+                                <li>amplifier</li>
+                            </ul>
+                            <li>Volume control</li>
+                        </ul>
+                        <li>Casing</li>
+                        <ul>
+                            <li>Toolbox, clear and pretty, size of a large
+                            laptop</li>
+                            <li>LEDs</li>
+                            <li>Containers for basic circuitry/removable
+                            components</li>
+                            <li>Fold closed, like a laptop</li>
+                        </ul>
+                        <li>Intelligence</li>
+                        <ul>
+                            <li>Accept and transmit analog and/or digital
+                            signals, multiple bytes in series</li>
+                            <li>Signal processing software</li>
+                            <li>Menu for user interface, submenus,
+                            navigation</li>
+                        </ul>
+                    </ul>
                     <br>
+                    <h2>System Block Diagram</h2>
+                    <h3>Overall System</h3>
+                    <img class="img-responsive" src="img/HLD_4_1.png" alt="">
+                    <h3>Subsystem and Interface Requirements</h3>
+                    <ul>
+                        <li>Power: wall</li>
+                        <ul>
+                            <li>This is just going to be a wall plug, connected to an
+                            adaptor to get a DC signal to recharge the
+                            batteries.</li>
+                        </ul>
+                        <li>Power: batteries</li>
+                        <ul>
+                            <li>The output requirements will be determined by the DC to
+                            sinusoid convertor and amplifiers.  There will be
+                            another conversion to a lower voltage for the board.
+                            The absolute minimum length of battery life will be two
+                            hours, but the goal will be to choose batteries that
+                            run for six hours.  These batteries will be
+                            rechargeable from the wall power.</li>
+                        </ul>
+                        <li>DC to sinusoid convertor</li>
+                        <ul>
+                            <li>Preferably 10Hz to 100kHz; range of four orders of
+                            magnitude, the minimum and maximum are
+                            negotiable depending on pricing, power
+                            consumption</li>
+                            <li>Software will dictate the frequency</li>
+                            <li>Amplifier to achieve proper amplitude of signal, gain
+                            dictated by software</li>
+                        </ul>
+                        <li>External hardware plugins</li>
+                        <ul>
+                            <li>Filters</li>
+                            <li>Amplifiers</li>
+                            <li>ADC/DAC</li>
+                        </ul>
+                        <li>Data output screen</li>
+                        <ul>
+                            <li>Plot graphs of inputs and/or outputs</li>
+                            <li>Two plots at a time, maximum</li>
+                            <li>Display voltage levels, other signal information</li>
+                            <li>Select time vs. frequency domains</li>
+                        </ul>
+                        <li>User menu screen</li>
+                        <ul>
+                            <li>Top level menu choosing input and output sources</li>
+                            <li>Submenus to choose parameters for input and
+                            <li>output</li>
+                            <li>Choose preprogrammed filters</li>
+                        </ul>
+                        <li>Speaker</li>
+                        <ul>
+                            <li>Need a control amplifier</li>
+                        </ul>
+                        <li>Audio jack</li>
+                        <ul>
+                            <li>Takes in a signal</li>
+                            <li>Send to ADC in microcontroller</li>
+                        </ul>
+                        <li>Software</li>
+                        <ul>
+                            <li>Signal processing software</li>
+                            <li>FFT function</li>
+                            <li>Plotting functions</li>
+                            <li>Data path control – select which signals are going
+                            where</li>
+                        </ul>
+                    </ul>
+                    <h3>Future Enhancement Requirements</h3>
+                    <ul>
+                        <li>Additional capability for signal generation: sawtooth and
+                        square waves</li>
+                        <li>USB plugin</li>
+                        <ul>
+                            <li>Saving output plots</li>
+                            <li>Possibly for plugging in a laptop for extended
+                            functionality.</li>
+                        </ul>
+                        <li>Programmability (via the keyboard or Pickit3)</li>
+                        <li>Cabinet for charging a set of Toolboxes, potentially
+                        wireless charging</li>
+                        <li>Additional internal memory</li>
+                        <li>Protection for our software, by
+                        password/encryption</li>
+                    </ul>
                     <br>
-                    <img class="img-responsive" src="img/ipad.png" alt="">
+                    <h2>High Level Design Decisions</h2>
+                    <br>
+                    <p>User interface: buttons as inputs for LCD menu (as opposed
+                    to toggles or switches)</p>
+                    <p>Building our own amplifiers (as opposed to buying
+                    one)</p>
+                    <p>Using an external sinusoid generator, which entails having
+                    an external circuit board that connects to the board we
+                    design (exact part number TBD)</p>
+                    <h2>Open Questions</h2>
+                    <p>Part numbers: signal generator, LCD screens, audio jack,
+                    speakers, rechargeable battery, wall plug and adaptor</p>
+                    <p>Number and color of LEDs</p>
+                    <p>Casing materials</p>
+                    <p>Exact design of adaptors for audio components</p>
+                    <br>
+                    <h2>Major Component Costs</h2>
+                    <p>Sinusoid generator ~$10</p>
+                    <p>LCD screens ~$50</p>
+                    <p>Power supplies ~$50</p>
+                    <p>Audio components ~$25</p>
+                    <p>Breadboard and circuit components ~$10</p>
+                    <p>Casing materials ~$10-100</p>
+                    <br>
+                    <h2>Conclusions</h2>
+                    <p>This project has the potential to have a lasting impact
+                    on the engineering department at Notre Dame.  The
+                    subcomponents of the project provide expandability in terms
+                    of external hardware plugins and pursuing future
+                    enhancements.  The subcomponents are diverse in their
+                    purpose and implementation, which will draw on knowledge of
+                    both devices and signal processing.</p>
                 </div>
             </div>
 
