@@ -48,8 +48,14 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="about.html">About</a>
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
+                      role="button" aria-expanded="false">
+                      About<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="about.html">About the Project</a></li>
+                            <li><a href="aboutus.html">About Us</a></li>
+                        </ul>
                     </li>
                     <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
@@ -95,7 +101,7 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-lg-5 col-sm-6">
+                <div class="col-lg-10 col-sm-8">
                     <div class="clearfix"></div>
                     <h1 class="section-heading">High Level Design</h1>
                     <a href="refs/HLD.pdf">View PDF</a>
@@ -149,7 +155,7 @@
                         <ul>
                             <li>Breadboard/circuit components/sensors</li>
                             <li>Signal generator</li>
-                            <li>Display (LEDs, screen/output)</li>
+                            <li>Display (LEDs, screen)</li>
                             <li>Audio I/O</li>
                         </ul>
                     </ul>
@@ -158,24 +164,13 @@
                     <ul>
                         <li>Power</li>
                         <ul>
-                            <li>rechargeable battery, 2 hours active use</li>
-                            <li>wall plug and adaptor</li>
+                            <li>USB power</li>
                             <li>button or switch</li>
-                        </ul>
-                        <li>Generate a signal</li>
-                        <ul>
-                            <li>AC/DC</li>
-                            <ul>
-                                <li>sinusoid generator</li>
-                                <li>amplifier</li>
-                            </ul>
-                            <li>3V maximum</li>
                         </ul>
                         <li>User interface</li>
                         <ul>
                             <li>input</li>
                             <ul>
-                                <li>menu of options</li>
                                 <li>buttons to select options</li>
                             </ul>
                             <li>output</li>
@@ -218,11 +213,9 @@
                         </ul>
                         <li>Intelligence</li>
                         <ul>
-                            <li>Accept and transmit analog and/or digital
-                            signals, multiple bytes in series</li>
+                            <li>Accept analog signals</li>
                             <li>Signal processing software</li>
-                            <li>Menu for user interface, submenus,
-                            navigation</li>
+                            <li>Buttons for navigation</li>
                         </ul>
                     </ul>
                     <br>
@@ -231,31 +224,10 @@
                     <img class="img-responsive" src="img/HLD_4_1.png" alt="">
                     <h3>Subsystem and Interface Requirements</h3>
                     <ul>
-                        <li>Power: wall</li>
+                        <li>Power: USB</li>
                         <ul>
-                            <li>This is just going to be a wall plug, connected to an
-                            adaptor to get a DC signal to recharge the
-                            batteries.</li>
-                        </ul>
-                        <li>Power: batteries</li>
-                        <ul>
-                            <li>The output requirements will be determined by the DC to
-                            sinusoid convertor and amplifiers.  There will be
-                            another conversion to a lower voltage for the board.
-                            The absolute minimum length of battery life will be two
-                            hours, but the goal will be to choose batteries that
-                            run for six hours.  These batteries will be
-                            rechargeable from the wall power.</li>
-                        </ul>
-                        <li>DC to sinusoid convertor</li>
-                        <ul>
-                            <li>Preferably 10Hz to 100kHz; range of four orders of
-                            magnitude, the minimum and maximum are
-                            negotiable depending on pricing, power
-                            consumption</li>
-                            <li>Software will dictate the frequency</li>
-                            <li>Amplifier to achieve proper amplitude of signal, gain
-                            dictated by software</li>
+                            <li>USB plug, either into a computer or into the
+                            wall using a USB adaptor</li>
                         </ul>
                         <li>External hardware plugins</li>
                         <ul>
@@ -263,19 +235,10 @@
                             <li>Amplifiers</li>
                             <li>ADC/DAC</li>
                         </ul>
-                        <li>Data output screen</li>
+                        <li>Data output</li>
                         <ul>
                             <li>Plot graphs of inputs and/or outputs</li>
-                            <li>Two plots at a time, maximum</li>
-                            <li>Display voltage levels, other signal information</li>
                             <li>Select time vs. frequency domains</li>
-                        </ul>
-                        <li>User menu screen</li>
-                        <ul>
-                            <li>Top level menu choosing input and output sources</li>
-                            <li>Submenus to choose parameters for input and
-                            <li>output</li>
-                            <li>Choose preprogrammed filters</li>
                         </ul>
                         <li>Speaker</li>
                         <ul>
@@ -289,10 +252,10 @@
                         <li>Software</li>
                         <ul>
                             <li>Signal processing software</li>
-                            <li>FFT function</li>
+                            <ul>
+                                <li>FFT function</li>
+                            </ul>
                             <li>Plotting functions</li>
-                            <li>Data path control – select which signals are going
-                            where</li>
                         </ul>
                     </ul>
                     <h3>Future Enhancement Requirements</h3>
@@ -308,14 +271,11 @@
                         <li>Programmability (via the keyboard or Pickit3)</li>
                         <li>Cabinet for charging a set of Toolboxes, potentially
                         wireless charging</li>
-                        <li>Additional internal memory</li>
-                        <li>Protection for our software, by
-                        password/encryption</li>
                     </ul>
                     <br>
                     <h2>High Level Design Decisions</h2>
                     <br>
-                    <p>User interface: buttons as inputs for LCD menu (as opposed
+                    <p>User interface: buttons as inputs (as opposed
                     to toggles or switches)</p>
                     <p>Building our own amplifiers (as opposed to buying
                     one)</p>
@@ -331,7 +291,6 @@
                     <br>
                     <h2>Major Component Costs</h2>
                     <p>Sinusoid generator ~$10</p>
-                    <p>LCD screens ~$50</p>
                     <p>Power supplies ~$50</p>
                     <p>Audio components ~$25</p>
                     <p>Breadboard and circuit components ~$10</p>
@@ -359,8 +318,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p class="copyright text-muted small">Copyright &copy; Can
-                    Anybody Hear Me 2015. All Rights Reserved</p>
+                    <p class="copyright text-muted small">Copyright &copy; 
+                    #pragma All Rights Reserved</p>
                 </div>
             </div>
         </div>
