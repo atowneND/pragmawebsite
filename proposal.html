@@ -103,45 +103,84 @@
             <div class="row">
                 <div class="col-lg-5 col-sm-6">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">Cats are pretty cool.<br>Squee</h2>
-                    <p class="lead"><h1>Dennis the Peasant</h1>
-                    <p>I don't want to talk to you no more, you empty-headed
-                    animal food trough water! I fart in your general direction!
-                    Your mother was a hamster and your father smelt of
-                    elderberries! Now leave before I am forced to taunt you a
-                    second time! Well, what do you want? On second thoughts,
-                    let's not go there. It is a silly place.</p>
-                    <h2>First shalt thou take out the Holy Pin</h2>
-                    <p>Be quiet! It's only a model. Why do you think that she
-                    is a witch? I am your king. On second thoughts, let's not
-                    go there. It is a silly place. You don't vote for
-                    kings.</p>
+                    <h1 class="section-heading">Proposal<br>Electrical Engineering (EE) Toolbox</h1>
+                    <p class="lead"><h2>1. Introduction</h2>
+                    <p>There is an effort in the College of Engineering to improve the freshman engineering course (EE 10111-10112) and make the course more interesting and educational.  One of the problems relevant to EE senior design is that there is not an adequate introduction to the fun side of electrical engineering that teaches fundamental concepts of what electrical engineers do.</p>
+                    <h2>2. Problem Description</h2>
+                    <p>Our goal is to create an engaging module for the freshman engineering course representative of the different applications of EE in the real world.  There is presently little exposure to EE concepts in the freshman course.  In addition to emphasizing civil engineering, computer science, and robotics, the freshman course should contain a module that focuses on circuits and signal processing, clearly expresses what EE entails, and sparks interest in the field among the freshmen. The concepts fundamental to EE are also transferrable skills among different engineering disciplines, such as familiarity with microcontrollers, filters, and circuits.</p>
+                    <h2>3. Proposed Solution</h2>
+                    <p>The proposed solution is a new EE learning module, using an EE Toolbox that will contain components to allow students to gain an introduction to the different aspects of EE.  The module will introduce basic EE concepts through an engaging manner through audio. The Toolbox will be an interactive learning environment designed to cover the basics of the Learning Objectives (listed below).  In order to achieve these learning objectives, the Toolbox will contain many components, also listed below.</p>
+                    <h4>Learning Objectives:</h4>
                     <ul>
-                        <li>It's only a model.</li>
-                        <li>Why?</li>
+                        <li>Basic signal processing: waveforms, waveform synthesis, basic signal analysis in time/frequency domains</li>
+                        <li>Basic RC circuits and software digital equivalents</li>
                     </ul>
-                    <h3>Makes Ben Hur look like an Epic!</h3>
-                    <p>Knights of Ni, we are but simple travelers who seek the
-                    enchanter who lives beyond these woods. How do you know she
-                    is a witch? The Lady of the Lake, her arm clad in the
-                    purest shimmering samite, held aloft Excalibur from the
-                    bosom of the water, signifying by divine providence that I,
-                    Arthur, was to carry Excalibur. That is why I am your
-                    king.</p>
-                    <h4>Blue. No, yel&hellip;</h4>
-                    <p>Where'd you get the coconuts? The Lady of the Lake, her
-                    arm clad in the purest shimmering samite, held aloft
-                    Excalibur from the bosom of the water, signifying by divine
-                    providence that I, Arthur, was to carry Excalibur. That is
-                    why I am your king. Look, my liege! He hasn't got shit all
-                    over him.</p>
-                    <ol>
-                        <li>Bring her forward!</li>
-                        <li>I am your king.</li>
-                    </ol>
-                    <h5>Sets The Cinema Back 900 Years!</h5>
-                    <p>A newt? Well, I didn't vote for you. Ni! Ni! Ni! Ni!
-                    Bring her forward!</p></p>
+                    <h4>Components:</h4>
+                    <ul>
+                        <li>Breadboard/circuit components/sensors</li>
+                        <li>Signal generator</li>
+                        <li>Programmable filters and computer/USB/MATLAB interface</li>
+                        <li>Display (LEDs, Screen/output)</li>
+                        <li>Audio I/O</li>
+                    </ul>
+                    <h2>4. Demonstrated Features</h2>
+                    <ul>
+                        <li>Low and High pass filters – analog and digital (on the breadboard and software output)</li>
+                        <li>Have freshmen use audio I/O to analyze a short clip of music and be able to demonstrate the difference between the time and frequency representations on the output</li>
+                        <li>Ability to interface between the Toolbox and a computer</li>
+                        <li>Test Toolbox on available freshman and have them explain what they learned from using the Toolbox</li>
+                    </ul>
+                    <h2>5. Available Technologies</h2>
+                    <ul>
+                        <li>Circuit components: resistors, capacitors, inductors, diodes, possibly transistors and op-amps</li>
+                        <li>I/O: LCD screen, USB connection to computer, LEDs, speakers, audio ports/microphone</li>
+                        <li>Interface: USB connection to computer, Arduino/Raspberry Pi/Other microcontroller I/O pins*</li>
+                    </ul>
+                    <p>*The Arduino/Raspberry Pi will not drive the Toolbox functions. It will be used as a teaching tool for an introduction to microcontroller interface for the freshmen.  We will use this as opposed to output pins that we design because Arduino/Raspberry Pi technology is more universal and has a lot of documentation for reference with capabilities to be tailored to be as simple or as complex as necessary.  We will design our own board to control the Toolbox functions mentioned above.</p>
+                    <h2>6. Engineering Content</h2>
+                    <p>Circuit design: ADC/DAC, amplifier, sensors and I/O<br>
+                        Signal processing: filters/FFT for course content/project objectives
+                    </p>
+                    <ul>
+                        <li>Microcontroller
+                            <ul>
+                                <li>Receive input/output signals from each above component</li>
+                                <li>Choose which input to send to which output</li>
+                                <li>Digital signal processing, especially for output to screen</li>
+                                <li>ADC/DAC</li>
+                            </ul></li>
+                        <li>Audio components
+                            <ul>
+                                <li>Have connections for external audio jack (input and output)</li>
+                                <li>Ability to send the input signal to the microcontroller</li>
+                                <li>Ability to receive an output signal from the microcontroller and amplify and play an audio output</li>
+                            </ul></li>
+                        <li>Signal generator
+                            <ul>
+                                <li>Knobs/buttons to select DC/AC, voltage levels, waveforms</li>
+                                <li>Send selection to microcontroller</li>
+                            </ul></li>
+                        <li>I/O
+                            <ul>
+                                <li>Arduino/Raspberry Pi interface with microcontroller, USB I/O</li>
+                                <li>Allows a user to program the Arduino/Raspberry Pi so the freshmen have a basic introduction to microcontrollers</li>
+                            </ul></li>
+                        <li>Breadboard
+                            <ul>
+                                <li>Amplifier for input from microcontroller</li>
+                                <li>Output pin to send signals back to microcontroller</li>
+                                <li>Design circuits/filters for freshmen to build</li>
+                            </ul></li>
+                        <li>Output screen/display indicators
+                            <ul>
+                                <li>Get signal from microcontroller</li>
+                                <li>Display it on an LCD screen or computer (USB connection)</li>
+                                <li>Buttons to choose output</li>
+                            </ul></li>
+                    </ul>
+                    <h2>7. Conclusions</h2>
+                    <p>This project has the potential to have a lasting impact on the engineering department at Notre Dame. There are six subcomponents of the project that will generate enough work for everyone in the group. The subcomponents are diverse in their purpose and implementation, which will draw on knowledge of both devices and signal processing.</p>
+                </p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
                     <br>
