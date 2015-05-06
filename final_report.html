@@ -103,57 +103,1799 @@
             <div class="row">
                 <div class="col-lg-5 col-sm-6">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">Cats are pretty cool.<br>Squee</h2>
-                    <p class="lead"><h1>Dennis the Peasant</h1>
-                    <p>I don't want to talk to you no more, you empty-headed
-                    animal food trough water! I fart in your general direction!
-                    Your mother was a hamster and your father smelt of
-                    elderberries! Now leave before I am forced to taunt you a
-                    second time! Well, what do you want? On second thoughts,
-                    let's not go there. It is a silly place.</p>
-                    <h2>First shalt thou take out the Holy Pin</h2>
-                    <p>Be quiet! It's only a model. Why do you think that she
-                    is a witch? I am your king. On second thoughts, let's not
-                    go there. It is a silly place. You don't vote for
-                    kings.</p>
-                    <ul>
-                        <li>It's only a model.</li>
-                        <li>Why?</li>
-                    </ul>
-                    <h3>Makes Ben Hur look like an Epic!</h3>
-                    <p>Knights of Ni, we are but simple travelers who seek the
-                    enchanter who lives beyond these woods. How do you know she
-                    is a witch? The Lady of the Lake, her arm clad in the
-                    purest shimmering samite, held aloft Excalibur from the
-                    bosom of the water, signifying by divine providence that I,
-                    Arthur, was to carry Excalibur. That is why I am your
-                    king.</p>
-                    <h4>Blue. No, yel&hellip;</h4>
-                    <p>Where'd you get the coconuts? The Lady of the Lake, her
-                    arm clad in the purest shimmering samite, held aloft
-                    Excalibur from the bosom of the water, signifying by divine
-                    providence that I, Arthur, was to carry Excalibur. That is
-                    why I am your king. Look, my liege! He hasn't got shit all
-                    over him.</p>
+                    <h1 class="section-heading">Final Report</h1>
+                    <h2>Introduction</h2>
+                    <p>There is an effort in the College of Engineering to
+                    improve the freshman engineering course (EE 10111-10112)
+                    and make the course more interesting and educational. One
+                    of the problems relevant to EE senior design is that there
+                    is not an adequate introduction to the fun side of
+                    electrical engineering that teaches fundamental concepts of
+                    what electrical engineers do.<br>Our goal is to create an engaging module for the freshman
+                    engineering course representative of the different
+                    applications of EE in the real world. There is presently
+                    little exposure to EE concepts in the freshman course. In
+                    addition to emphasizing civil engineering, computer
+                    science, and robotics, the freshman course should contain a
+                    module that focuses on circuits and signal processing,
+                    clearly expresses what EE entails, and sparks interest in
+                    the field among the freshmen. The concepts fundamental to
+                    EE are also transferrable skills among different
+                    engineering disciplines, such as familiarity with
+                    microcontrollers, filters, and circuits. The proposed
+                    solution is a new EE learning module, using an EE Toolbox
+                    that will contain components to allow students to gain an
+                    introduction to the different aspects of EE. The Toolbox
+                    will be an interactive learning environment designed to
+                    cover the basics of the audio applications of signal
+                    processing and, in the process, of basic circuit-building.</p>
+                    <h2>Detailed System Requirements</h2>
+                    <h3>Power:</h3>
+                    <p>The main concerns for the power source are the
+                    microcontroller, the speakers, and supply voltages for
+                    amplifier circuits. The microcontroller operates at a range
+                    of 2.3-3.6V, and while many amplifiers operate at 9V, some
+                    can use lower voltages. Speakers also have some
+                    flexibility, depending on the model chosen. Taking these
+                    into consideration, it was decided that the system will be
+                    powered through USB, which would allow the user to operate
+                    it while connected to a computer or to a wall adapter.
+                    Because data will be transferred from the module to a
+                    computer through USB, it makes sense to use this as the
+                    power source, while minimizing the number of external
+                    connections to the system. The USB connection will supply a
+                    DC voltage of 5V, which will suffice for the
+                    microcontroller, which operates at a maximum of 3.6V, and
+                    for the amplifiers and filters on the breadboard. Because
+                    USB was selected as the power source, USB-powered speakers
+                    will be used.</p>
+                    <h3>User Interface:</h3>
+                    <p>The most basic functions of the audio effects board do
+                    not require a graphical user interface; instructions for
+                    operation will be provided as a part of the curriculum
+                    materials. By default, the audio signal is passed through
+                    the effects board to the speaker or output audio jack. When
+                    desired, the user flips a switch or presses a button, which
+                    relays the audio signal to the microcontroller. Meanwhile,
+                    a MATLAB graphical user interface on the computer will wait
+                    to accept the incoming data from the USB. When the data is
+                    finished exporting and processed, it will be displayed on a
+                    graph. The user can observe the output in either time or
+                    frequency domain, and will have the option to change the
+                    scale and other parameters of the plot. On the mobile
+                    phone, a simple signal generator application will be used
+                    to send out the signal. The app will have adjustable
+                    amplitude and frequency controls, and the tones generated
+                    will be in the audible range.</p>
+                    <h3>Breadboard:</h3>
+                    <p>One of the main foci of this system is to allow the user
+                    to apply filters and amplifiers to an audio signal and
+                    observe the chances caused by these components. The analog
+                    audio input signal will connect to a breadboard, where the
+                    user adds on the various sound effects. Most of the filters
+                    will be pre-built and pre-packaged on small PCB’s made
+                    ready to be inserted on the breadboard. These circuits will
+                    be rather complex, so the freshmen will not be expected to
+                    build them on their own. Nonetheless, the components of the
+                    circuits will be made visible so that they can be explained
+                    briefly and observed by the students. Additionally, having
+                    these circuits pre-built will significantly reduce the
+                    likelihood of making a lethal connection that could damage
+                    the microcontroller, while facilitating the whole process
+                    in general. There will also be other small boards for
+                    students to build their own simpler circuits on. For
+                    example, a basic passive wave rectifier can be built using
+                    only a resistor and diodes and would be relatively simple
+                    to assemble, even for inexperienced engineers. These boards
+                    will have small labels and drawings to make the placement
+                    of the components clear. Thus, students will be able to
+                    observe the effects that filters have on a signal and gain
+                    a basic understanding of some circuit design.</p>
+                    <h3>Audio I/O</h3>
+                    <p>Because a major component of the module is to allow the
+                    user to observe the effects of filters on a signal, it will
+                    allow the user to experience this first hand through sound.
+                    The module will accept an analog audio input from an
+                    external device, most likely a smartphone, through a 3.5mm
+                    audio jack. A mobile application on the smartphone will be
+                    used to generate sinusoidal signals (and other types of
+                    signals) with adjustable frequency and amplitude controls.
+                    Music files can also be played from the phone. The analog
+                    audio signal will be sent to the breadboard, where it is
+                    passed through pre-built filter boards and output through
+                    the speakers. The speakers will be USB-operated and produce
+                    an output at a reasonably audible range. The user can
+                    adjust the volume. Alternatively, the output signal can be
+                    relayed to an output audio jack, where the user can connect
+                    headphones or other speakers.</p>
+                    <h3>Presentation</h3>
+                    <p>The system must be presented in a clear and portable
+                        manner, giving the user convenient access to all
+                        subsystems and components. It will be reasonably
+                        compact, about the size of a large laptop, and close
+                        securely for storage of loose components and cables. A
+                        likely manifestation of this would be a toolbox-like
+                        kit, which will have the breadboard, speakers, and LCD
+                        screen all on the same plane. Underneath these
+                        components in the “box” part of the kit will be the
+                        microcontroller and other interfaces between the
+                        subsystems. The input and output audio jacks and the
+                        USB port will be clearly visible on the outer surface
+                        of the product for easy connection. A drawer or small
+                        box-like compartment will contain the filters and other
+                        loose components. The goal is to make the system appear
+                        as simple as possible so as to minimize the risk of
+                        error and not overwhelm the freshmen.</p>
+                    <h2>Detailed Project Description</h2>
+                    <h3>System Theory of Operation</h3>
+                    <p>The user will begin operation of the system by first
+                    connecting selected filters to the breadboard and
+                    assembling any filters as needed. Next, the user will turn
+                    on the system and connect the audio source to the input
+                    audio jack using a 3.5mm cable. The input signal will be
+                    connected to the speakers or output audio jack by default.
+                    Sound transmission will begin when the user turns on the
+                    signal on the mobile application on the phone. Volume can
+                    be adjusted. The user may toggle between the speakers or
+                    the output audio jack, using a button or a switch. When the
+                    data is ready to be recorded, the user presses a “Send”
+                    button, and the screen will update to show that the audio
+                    signal is being sampled. The audio signal will be relayed
+                    to the analog to digital converter of the microcontroller
+                    unit, where it will be converted into digital data and sent
+                    out of the microcontroller to the computer through the USB
+                    cable. An appropriate limit will be set on the sample size,
+                    depending on the frequency and nature of the signal. The
+                    data is then processed by the MATLAB program on the
+                    computer and plotted on a graph in either time or frequency
+                    domain. Here the user will be able to make adjustments to
+                    the plot and visually observe the effects created by the
+                    filters on the audio signal. If desired, the user may
+                    record multiple sets of data and overlay their graphs to
+                    allow the comparison of different effects.</p>
+                    <h3>System Block Diagram</h3>
+                    <img class="img-responsive" src="img/HLD_4_1.png" alt="">
+                    <h3>Subsystem Discription</h3>
+                    <h4> Speakers</h4>
+                    <p>The speakers are essential to the EE Toolbox. They allow
+                    a direct method of interaction with the user without a need
+                    for interfacing with the computer. There were certain
+                    requirements that the speakers did have to meet. Namely,
+                    the speakers had to:</p>
                     <ol>
-                        <li>Bring her forward!</li>
-                        <li>I am your king.</li>
+                        <li>Be compact so as to fit within the confines of the EE
+                        Toolbox</li>
+                        <li>Be low-power so that no additional power beyond
+                        USB would be required to drive the system</li>
+                        <li>Output at least conversation-level noise for
+                        use</li>
+                        <li>Output audio with enough quality to provide the
+                        user with a pleasant listening experience and make it
+                        easier to discern the effects of filtering</li>
+                        <li>Be simple to interact with to avoid damage to
+                        the subsystem and the overall system in general</li>
                     </ol>
-                    <h5>Sets The Cinema Back 900 Years!</h5>
-                    <p>A newt? Well, I didn't vote for you. Ni! Ni! Ni! Ni!
-                    Bring her forward!</p></p>
-                </div>
-                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <br>
-                    <br>
-                    <br>
-                    <img class="img-responsive" src="img/ipad.png" alt="">
+                    <p>With these requirements in mind, the group did some
+                    initial research into speaker systems. Initial results
+                    yielded speakers activated by microcontrollers or driven by
+                    external circuits which demanded high power consumption.
+                    Neither of these systems would work due to the system
+                    requirements.</p>
+                    <p>With these parameters in mind, we met with Doug Hall to
+                    discuss speaker design and how to select appropriate
+                    speakers for the system. Doug Hall offered a few things to
+                    note with regards to the system. The first is that the
+                    audio quality will be largely determined by our D/A and
+                    sampling. Having a high resolution and using many bits is
+                    critical for our interface with the speakers. Given our
+                    need for high quality audio and audible tones, he suggested
+                    we look into acquiring speakers with good drivers. Second,
+                    high audio quality also requires the acquisition of
+                    full-range speakers. In order to notice the effects of low
+                    pass filter or high pass filtering, speakers which have a
+                    broader spectral response are more adequate. Full-Range
+                    speakers have a frequency response of 60-20000Hz, covering
+                    the vast majority of sounds within the audible range of
+                    humans.</p>
+                    <p>With these considerations in mind, the group initially
+                    conceived acquiring full range speakers with a driving
+                    circuit separately. However, this could lead to a lot of
+                    error, and given our time constraints, it was not feasible
+                    to purchase parts in an attempt to optimize the audio
+                    output from the speakers. For the design, high-fidelity
+                    speakers will not be necessary. The board will have an
+                    audio jack which the user can use to connect their own
+                    speakers if they wish to obtain sound at a higher
+                    quality.</p>
+                    <p>In addition, it would also require the use of a lot of
+                    power to drive the amplifier. Purchasing an Objective-2
+                    headphone amplifier was under consideration, but due to
+                    budgetary constraints and system requirements, it was
+                    deemed unnecessary.</p>
+                    <p>The final design settled upon is the X-Mini MAX XAM15-GM
+                    Portable Capsule Speakers. The speakers are designed as
+                    small capsules with a 2-inch diameter, thus fitting the
+                    first requirement. The speakers have batteries which are
+                    recharged through a micro-USB port, are simple to interact
+                    with—a standard audio jack—, and have a full-range
+                    frequency response. The battery lasts up to 18 hours, and
+                    each speaker can be used individually such that the
+                    unaltered output and filtered output can be heard at the
+                    same time. Thus, the speakers fit the whole set of system
+                    requirements and additional features which make the
+                    experience user-friendly.</p>
+                    <p>The speakers have ceramic drivers. Ceramic drivers are used
+                    to deal with the high frequencies which neodymium drivers
+                    are not geared to handle. The ceramic tweeters are highly
+                    corrosion resistant and have a higher resistance to
+                    demagnetization (IKE 2012), producing less distortion at
+                    high frequencies. The speakers are also better designed to
+                    deal with bass, as they have a Bass Xpansion System which
+                    serves as a digital subwoofer system. To complement the
+                    digital system, the speakers can also decompress to expand
+                    the area for the bass to work with, as follows:</p>
+                    <img class="img-responsive" src="img/speakers.png" alt="">
+                    <p>As seen above, the speaker has the ability to expand to
+                    increase its bass capabilities.</p>
+                    <p>The subsystem was tested under two different
+                    conditions:</p>
+                    <ol>
+                        <li>Full range capabilities</li>
+                        <li>Driving power</li>
+                    </ol>
+                    <p>Full Range capabilities were tested using a frequency
+                    generator application[1] on a mobile phone. The speakers
+                    were driven from 50-100Hz for low frequency testing and
+                    from 19000-21000Hz for high frequency testing. The main
+                    factor looked for was whether the speakers were audible at
+                    such ranges. After running continuous tests with the
+                    frequency generator, the speakers were determined to be
+                    able to reproduce frequencies at such levels, even going so
+                    far as to shaking on the table when driving the bass.</p>
+                    <p>The driving power was then placed to the test. The speakers
+                    were pushed to very high volumes using a personal computer.
+                    Under such driving, the speakers were able to provide audio
+                    well above normal conversation range, thus demonstrating
+                    that they are powerful enough to satisfy the audio needs of
+                    the EE Toolbox.</p>
+                    <h4>Screen</h4>
+                    <h5>Requirements</h5>
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>2.<span
+style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Driving Power</span></p>
+
+<p class=normal style='text-indent:.5in;line-height:200%'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>Full Range
+capabilities were tested using a frequency generator application[1] on a mobile
+phone. The speakers were driven from 50-100Hz for low frequency testing and
+from 19000-21000Hz for high frequency testing. The main factor looked for was
+whether the speakers were audible at such ranges. After running continuous
+tests with the frequency generator, the speakers were determined to be able to
+reproduce frequencies at such levels, even going so far as to shaking on the
+table when driving the bass.</span></p>
+
+<p class=normal style='text-indent:.5in;line-height:200%'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>The driving
+power was then placed to the test. The speakers were pushed to very high
+volumes using a personal computer. Under such driving, the speakers were able
+to provide audio well above normal conversation range, thus demonstrating that
+they are powerful enough to satisfy the audio needs of the EE Toolbox.</span></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<span style='font-size:11.0pt;mso-bidi-font-size:10.0pt;line-height:115%;
+font-family:Arial;mso-fareast-font-family:Arial;mso-bidi-font-family:Arial;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA'><br
+clear=all style='mso-special-character:line-break;page-break-before:always'>
+</span>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal><u><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+line-height:115%'>Subsystem Description: Screen</span></u></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>Requirements:</span></p>
+
+<p class=normal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+line-height:115%'>Must send a line of text to the LCD screen, describing the
+actions taking place (i.e reading data, exporting data, etc.)</span></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+line-height:115%'>Flow Chart: </span></p>
+
+<p class=normal align=center style='text-align:center'><!--[if mso & !supportInlineShapes & supportFields]><span
+style='mso-element:field-begin;mso-field-lock:yes'></span><span
+style="mso-spacerun:yes">&nbsp;</span>SHAPE <span
+style="mso-spacerun:yes">&nbsp;</span>\* MERGEFORMAT <span style='mso-element:
+field-separator'></span><![endif]--><!--[if gte vml 1]><v:group id="Group_x0020_20"
+ o:spid="_x0000_s1027" style='width:216.15pt;height:217.9pt;
+ mso-position-horizontal-relative:char;mso-position-vertical-relative:line'
+ coordorigin="952500,638175" coordsize="4000800,4038599" o:gfxdata="UEsDBBQABgAIAAAAIQDkmcPA+wAAAOEBAAATAAAAW0NvbnRlbnRfVHlwZXNdLnhtbJSRQU7DMBBF
+90jcwfIWJQ5dIISSdEHaJSBUDjCyJ4nVZGx53NDeHictG4SKWNrj9//TuFwfx0FMGNg6quR9XkiB
+pJ2x1FXyY7fNHqXgCGRgcISVPCHLdX17U+5OHlkkmriSfYz+SSnWPY7AufNIadK6MEJMx9ApD3oP
+HapVUTwo7SgixSzOGbIuG2zhMESxOabrs0nCpXg+v5urKgneD1ZDTKJqnqpfuYADXwEnMj/ssotZ
+nsglnHvr+e7S8JpWE6xB8QYhvsCYPJQJrHDlGqfz65Zz2ciZa1urMW8Cbxbqr2zjPing9N/wJmHv
+OH2nq+WD6i8AAAD//wMAUEsDBBQABgAIAAAAIQAjsmrh1wAAAJQBAAALAAAAX3JlbHMvLnJlbHOk
+kMFqwzAMhu+DvYPRfXGawxijTi+j0GvpHsDYimMaW0Yy2fr28w6DZfS2o36h7xP//vCZFrUiS6Rs
+YNf1oDA78jEHA++X49MLKKk2e7tQRgM3FDiMjw/7My62tiOZYxHVKFkMzLWWV63FzZisdFQwt81E
+nGxtIwddrLvagHro+2fNvxkwbpjq5A3wye9AXW6lmf+wU3RMQlPtHCVN0xTdPaoObMsc3ZFtwjdy
+jWY5YDXgWTQO1LKu/Qj6vn74p97TRz7jutV+h4zrj1dvuhy/AAAA//8DAFBLAwQUAAYACAAAACEA
+hk3MWH4DAAB0EwAADgAAAGRycy9lMm9Eb2MueG1s7FjbTtwwEH2v1H+w8l6SOMleIhZUcVOlqqBS
+PsCbOJfKsS3bkOXvO3Yu7C4UAS0tQstDsOPZ8cyZ45OR9w9XDUM3VOla8IUX7gUeojwTec3LhXf1
+4/TTzEPaEJ4TJjhdeLdUe4cHHz/stzKlWFSC5VQhcMJ12sqFVxkjU9/XWUUboveEpBwWC6EaYmCq
+Sj9XpAXvDfNxEEz8VqhcKpFRreHtcbfoHTj/RUEzc14UmhrEFh7EZtxTuefSPv2DfZKWisiqzvow
+yAuiaEjNYdPR1TExBF2r+p6rps6U0KIwe5lofFEUdUZdDpBNGGxlc6bEtXS5lGlbyhEmgHYLpxe7
+zb7dXChU5wsPAzycNFAjty2COYDTyjIFmzMlL+WF6l+U3czmuypUY/9DJmjlYL0dYaUrgzJ4iadx
+EoXgPoM1PJ1MgzDqgM8qqI793TzBSQAWYDCJZuE0GdZPeh9xEAQza2F9xEE0S+Zza+MPIfg20jGw
+VgKd9B1i+s8Qu6yIpK4Q2qIxIBYOiJ3fEIZwaAOyO4PJiJZONQD3AFS/SXkALUziCAjeJRwmExxs
+JUxSqbQ5o6JBdrDwKGO11DZMkpKbr9p08AxW9rUWrM5Pa8bcRJXLI6YQxL7wjk5P8KmrCiC6YcY4
+auFkz4PEBkPgjBaMGLfLhp1edwfVgr++QBtmNpxjoqtuW7fU1Rq4znMImaQVJfkJz5G5lcBGDrrh
+2RAamnuIUZAZO3KWhtTsKZaQE+NAFlucrhx2ZFbLlaM+cLOv3FLkt1Bd9oUDY+ZhjBPQjPWJWp8s
+1yeEZ5UAZcmM8lA3OTJOaWwdekJ2/Hh9ZuKBmd/rsjLos1KiRRgPaT6JoDieJ9P+UIZQ/wmA4VAf
+KAr4wLHsj2QytWy1qQ4n8h5BlY3FhXLHUVvvMu+Fh+Q/4UgVDQMJticKJKHzuWkDyT1gA/s61rsI
+dqR3MDxK+lGu3gvpo4H0nRw7NXuyHEdxCB9gYPPWJ2gg+06P/6Eej0L1XqgZb1IzfpYQr1MzCsN4
+MrRHO27+h15hlJX3wk1ocbq+/1i0fGgV3Kf+6eI5TaIAWGnFE0MfgLcZGnftgeve+7bh0VYhh1B2
+nYL3RtrjUa7eC+UnA+Wv5ED4ybMkOcahI/lfI/y13NH9rdB91L7Xp7u7tYCrHdet99dQ9u5ofQ7j
+9cuyg18AAAD//wMAUEsDBBQABgAIAAAAIQCCzWCL3AAAAAUBAAAPAAAAZHJzL2Rvd25yZXYueG1s
+TI9Ba8JAEIXvhf6HZQq91U2MFkmzERHtSQrVQultzI5JMDsbsmsS/71rL+1leMMb3vsmW46mET11
+rrasIJ5EIIgLq2suFXwdti8LEM4ja2wsk4IrOVjmjw8ZptoO/En93pcihLBLUUHlfZtK6YqKDLqJ
+bYmDd7KdQR/WrpS6wyGEm0ZOo+hVGqw5NFTY0rqi4ry/GAXvAw6rJN70u/Npff05zD++dzEp9fw0
+rt5AeBr93zHc8QM65IHpaC+snWgUhEf87wzeLJkmII53MV+AzDP5nz6/AQAA//8DAFBLAQItABQA
+BgAIAAAAIQDkmcPA+wAAAOEBAAATAAAAAAAAAAAAAAAAAAAAAABbQ29udGVudF9UeXBlc10ueG1s
+UEsBAi0AFAAGAAgAAAAhACOyauHXAAAAlAEAAAsAAAAAAAAAAAAAAAAALAEAAF9yZWxzLy5yZWxz
+UEsBAi0AFAAGAAgAAAAhAIZNzFh+AwAAdBMAAA4AAAAAAAAAAAAAAAAALAIAAGRycy9lMm9Eb2Mu
+eG1sUEsBAi0AFAAGAAgAAAAhAILNYIvcAAAABQEAAA8AAAAAAAAAAAAAAAAA1gUAAGRycy9kb3du
+cmV2LnhtbFBLBQYAAAAABAAEAPMAAADfBgAAAAA=
+">
+ <v:oval id="Oval_x0020_21" o:spid="_x0000_s1028" style='position:absolute;
+  left:952500;top:638175;width:1543200;height:1562099;visibility:visible;
+  mso-wrap-style:square;v-text-anchor:middle' o:gfxdata="UEsDBBQABgAIAAAAIQAyPL0++wAAAOIBAAATAAAAW0NvbnRlbnRfVHlwZXNdLnhtbJSRQU7DMBBF
+90jcwfIWJQ4sEEJNuiCwBATlACN7klgkY8tjQnt7Jm3ZIFTE0p55/z/Zq/V2GtWMiX2gWl+WlVZI
+NjhPfa3fNg/FjVacgRyMgbDWO2S9bs7PVptdRFZCE9d6yDneGsN2wAm4DBFJJl1IE2Q5pt5EsO/Q
+o7mqqmtjA2WkXOQlQzerFjv4GLO638r1wURwre4Oe0tVrSHG0VvIImqWqfmVSzjyCXAm98OuOJqV
+Qu7DefCRL44NT/I0yTtUz5DyI0ziYVxiwwNElJ3ytOdSN3ERus5bLNvErwv3V7gLn5Rw/m92K9gL
+zt/pZv9DzRcAAAD//wMAUEsDBBQABgAIAAAAIQCqi10N0wAAAI8BAAALAAAAX3JlbHMvLnJlbHOk
+kLFqAzEMhvdA38Fo7/mSoZQQX7ZC1pBCV2Hr7kzOlrHMNXn7uJRCL2TLoEG/0PcJ7faXMKmZsniO
+BtZNC4qiZefjYODz9PH6DkoKRocTRzJwJYF997LaHWnCUpdk9ElUpUQxMJaStlqLHSmgNJwo1knP
+OWCpbR50QnvGgfSmbd90/s+AbsFUB2cgH9wa1OmaqvmOHbzNLNyXxnLQ3PfePqJqGTHRV5gqBvNA
+xYDL8pvW05paoB+bN0+aHX/HI81L8U+Yaf7z6sUbuxsAAAD//wMAUEsDBBQABgAIAAAAIQAzLwWe
+QQAAADkAAAAQAAAAZHJzL3NoYXBleG1sLnhtbLKxr8jNUShLLSrOzM+zVTLUM1BSSM1Lzk/JzEu3
+VQoNcdO1UFIoLknMS0nMyc9LtVWqTC1Wsrfj5QIAAAD//wMAUEsDBBQABgAIAAAAIQBEptxIxQAA
+ANsAAAAPAAAAZHJzL2Rvd25yZXYueG1sRI9Ba8JAFITvBf/D8gRvza5Ka5u6igqF4qFQTfH6yD6T
+YPZtzK6a9Ne7hUKPw8x8w8yXna3FlVpfOdYwThQI4tyZigsN2f798QWED8gGa8ekoScPy8XgYY6p
+cTf+ousuFCJC2KeooQyhSaX0eUkWfeIa4ugdXWsxRNkW0rR4i3Bby4lSz9JixXGhxIY2JeWn3cVq
+OJzVZbr+7g8sZ6/95zqbPv1sWevRsFu9gQjUhf/wX/vDaJiM4fdL/AFycQcAAP//AwBQSwECLQAU
+AAYACAAAACEAMjy9PvsAAADiAQAAEwAAAAAAAAAAAAAAAAAAAAAAW0NvbnRlbnRfVHlwZXNdLnht
+bFBLAQItABQABgAIAAAAIQCqi10N0wAAAI8BAAALAAAAAAAAAAAAAAAAACwBAABfcmVscy8ucmVs
+c1BLAQItABQABgAIAAAAIQAzLwWeQQAAADkAAAAQAAAAAAAAAAAAAAAAACgCAABkcnMvc2hhcGV4
+bWwueG1sUEsBAi0AFAAGAAgAAAAhAESm3EjFAAAA2wAAAA8AAAAAAAAAAAAAAAAAlwIAAGRycy9k
+b3ducmV2LnhtbFBLBQYAAAAABAAEAPUAAACJAwAAAAA=
+" fillcolor="#cfe2f3" strokeweight="1.5pt">
+  <v:textbox inset="91425emu,91425emu,91425emu,91425emu">
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=normal style='line-height:normal'><span style='font-size:14.0pt;
+     mso-bidi-font-size:10.0pt'><span
+     style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Text</span></p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:oval><v:shapetype id="_x0000_t13" coordsize="21600,21600" o:spt="13"
+  adj="16200,5400" path="m@0,0l@0@1,0@1,0@2@0@2@0,21600,21600,10800xe">
+  <v:stroke joinstyle="miter"/>
+  <v:formulas>
+   <v:f eqn="val #0"/>
+   <v:f eqn="val #1"/>
+   <v:f eqn="sum height 0 #1"/>
+   <v:f eqn="sum 10800 0 #1"/>
+   <v:f eqn="sum width 0 #0"/>
+   <v:f eqn="prod @4 @3 10800"/>
+   <v:f eqn="sum width 0 @5"/>
+  </v:formulas>
+  <v:path o:connecttype="custom" o:connectlocs="@0,0;0,10800;@0,21600;21600,10800"
+   o:connectangles="270,180,90,0" textboxrect="0,@1,@6,@2"/>
+  <v:handles>
+   <v:h position="#0,#1" xrange="0,21600" yrange="0,10800"/>
+  </v:handles>
+ </v:shapetype><v:shape id="Right_x0020_Arrow_x0020_22" o:spid="_x0000_s1029"
+  type="#_x0000_t13" style='position:absolute;left:2495700;top:1190625;width:914400;
+  height:457200;visibility:visible;mso-wrap-style:square;v-text-anchor:middle'
+  o:gfxdata="UEsDBBQABgAIAAAAIQAyPL0++wAAAOIBAAATAAAAW0NvbnRlbnRfVHlwZXNdLnhtbJSRQU7DMBBF
+90jcwfIWJQ4sEEJNuiCwBATlACN7klgkY8tjQnt7Jm3ZIFTE0p55/z/Zq/V2GtWMiX2gWl+WlVZI
+NjhPfa3fNg/FjVacgRyMgbDWO2S9bs7PVptdRFZCE9d6yDneGsN2wAm4DBFJJl1IE2Q5pt5EsO/Q
+o7mqqmtjA2WkXOQlQzerFjv4GLO638r1wURwre4Oe0tVrSHG0VvIImqWqfmVSzjyCXAm98OuOJqV
+Qu7DefCRL44NT/I0yTtUz5DyI0ziYVxiwwNElJ3ytOdSN3ERus5bLNvErwv3V7gLn5Rw/m92K9gL
+zt/pZv9DzRcAAAD//wMAUEsDBBQABgAIAAAAIQCqi10N0wAAAI8BAAALAAAAX3JlbHMvLnJlbHOk
+kLFqAzEMhvdA38Fo7/mSoZQQX7ZC1pBCV2Hr7kzOlrHMNXn7uJRCL2TLoEG/0PcJ7faXMKmZsniO
+BtZNC4qiZefjYODz9PH6DkoKRocTRzJwJYF997LaHWnCUpdk9ElUpUQxMJaStlqLHSmgNJwo1knP
+OWCpbR50QnvGgfSmbd90/s+AbsFUB2cgH9wa1OmaqvmOHbzNLNyXxnLQ3PfePqJqGTHRV5gqBvNA
+xYDL8pvW05paoB+bN0+aHX/HI81L8U+Yaf7z6sUbuxsAAAD//wMAUEsDBBQABgAIAAAAIQAzLwWe
+QQAAADkAAAAQAAAAZHJzL3NoYXBleG1sLnhtbLKxr8jNUShLLSrOzM+zVTLUM1BSSM1Lzk/JzEu3
+VQoNcdO1UFIoLknMS0nMyc9LtVWqTC1Wsrfj5QIAAAD//wMAUEsDBBQABgAIAAAAIQCcvX+QxAAA
+ANsAAAAPAAAAZHJzL2Rvd25yZXYueG1sRI9Ba8JAFITvQv/D8gq9mU0DEY2uIRTaaj1VS/H4zD6T
+0OzbkN1q9Nd3BaHHYWa+YRb5YFpxot41lhU8RzEI4tLqhisFX7vX8RSE88gaW8uk4EIO8uXDaIGZ
+tmf+pNPWVyJA2GWooPa+y6R0ZU0GXWQ74uAdbW/QB9lXUvd4DnDTyiSOJ9Jgw2Ghxo5eaip/tr9G
+wT711UeKs0KvNtfDu/xOeJ2+KfX0OBRzEJ4G/x++t1daQZLA7Uv4AXL5BwAA//8DAFBLAQItABQA
+BgAIAAAAIQAyPL0++wAAAOIBAAATAAAAAAAAAAAAAAAAAAAAAABbQ29udGVudF9UeXBlc10ueG1s
+UEsBAi0AFAAGAAgAAAAhAKqLXQ3TAAAAjwEAAAsAAAAAAAAAAAAAAAAALAEAAF9yZWxzLy5yZWxz
+UEsBAi0AFAAGAAgAAAAhADMvBZ5BAAAAOQAAABAAAAAAAAAAAAAAAAAAKAIAAGRycy9zaGFwZXht
+bC54bWxQSwECLQAUAAYACAAAACEAnL1/kMQAAADbAAAADwAAAAAAAAAAAAAAAACXAgAAZHJzL2Rv
+d25yZXYueG1sUEsFBgAAAAAEAAQA9QAAAIgDAAAAAA==
+" fillcolor="#cfe2f3" strokeweight="1.5pt">
+  <v:stroke joinstyle="round"/>
+  <v:textbox inset="91425emu,91425emu,91425emu,91425emu">
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=normal style='line-height:normal'><o:p>&nbsp;</o:p></p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:shape><v:oval id="Oval_x0020_23" o:spid="_x0000_s1030" style='position:absolute;
+  left:3410100;top:638175;width:1543200;height:1562099;visibility:visible;
+  mso-wrap-style:square;v-text-anchor:middle' o:gfxdata="UEsDBBQABgAIAAAAIQAyPL0++wAAAOIBAAATAAAAW0NvbnRlbnRfVHlwZXNdLnhtbJSRQU7DMBBF
+90jcwfIWJQ4sEEJNuiCwBATlACN7klgkY8tjQnt7Jm3ZIFTE0p55/z/Zq/V2GtWMiX2gWl+WlVZI
+NjhPfa3fNg/FjVacgRyMgbDWO2S9bs7PVptdRFZCE9d6yDneGsN2wAm4DBFJJl1IE2Q5pt5EsO/Q
+o7mqqmtjA2WkXOQlQzerFjv4GLO638r1wURwre4Oe0tVrSHG0VvIImqWqfmVSzjyCXAm98OuOJqV
+Qu7DefCRL44NT/I0yTtUz5DyI0ziYVxiwwNElJ3ytOdSN3ERus5bLNvErwv3V7gLn5Rw/m92K9gL
+zt/pZv9DzRcAAAD//wMAUEsDBBQABgAIAAAAIQCqi10N0wAAAI8BAAALAAAAX3JlbHMvLnJlbHOk
+kLFqAzEMhvdA38Fo7/mSoZQQX7ZC1pBCV2Hr7kzOlrHMNXn7uJRCL2TLoEG/0PcJ7faXMKmZsniO
+BtZNC4qiZefjYODz9PH6DkoKRocTRzJwJYF997LaHWnCUpdk9ElUpUQxMJaStlqLHSmgNJwo1knP
+OWCpbR50QnvGgfSmbd90/s+AbsFUB2cgH9wa1OmaqvmOHbzNLNyXxnLQ3PfePqJqGTHRV5gqBvNA
+xYDL8pvW05paoB+bN0+aHX/HI81L8U+Yaf7z6sUbuxsAAAD//wMAUEsDBBQABgAIAAAAIQAzLwWe
+QQAAADkAAAAQAAAAZHJzL3NoYXBleG1sLnhtbLKxr8jNUShLLSrOzM+zVTLUM1BSSM1Lzk/JzEu3
+VQoNcdO1UFIoLknMS0nMyc9LtVWqTC1Wsrfj5QIAAAD//wMAUEsDBBQABgAIAAAAIQDbOOekxQAA
+ANsAAAAPAAAAZHJzL2Rvd25yZXYueG1sRI9Pa8JAFMTvBb/D8oTemk0NthqzkVooFA8F/+H1kX0m
+odm3aXbVxE/vFgo9DjPzGyZb9qYRF+pcbVnBcxSDIC6srrlUsN99PM1AOI+ssbFMCgZysMxHDxmm
+2l55Q5etL0WAsEtRQeV9m0rpiooMusi2xME72c6gD7Irpe7wGuCmkZM4fpEGaw4LFbb0XlHxvT0b
+Bcef+JysDsOR5et8+Frtk+ltzUo9jvu3BQhPvf8P/7U/tYJJAr9fwg+Q+R0AAP//AwBQSwECLQAU
+AAYACAAAACEAMjy9PvsAAADiAQAAEwAAAAAAAAAAAAAAAAAAAAAAW0NvbnRlbnRfVHlwZXNdLnht
+bFBLAQItABQABgAIAAAAIQCqi10N0wAAAI8BAAALAAAAAAAAAAAAAAAAACwBAABfcmVscy8ucmVs
+c1BLAQItABQABgAIAAAAIQAzLwWeQQAAADkAAAAQAAAAAAAAAAAAAAAAACgCAABkcnMvc2hhcGV4
+bWwueG1sUEsBAi0AFAAGAAgAAAAhANs456TFAAAA2wAAAA8AAAAAAAAAAAAAAAAAlwIAAGRycy9k
+b3ducmV2LnhtbFBLBQYAAAAABAAEAPUAAACJAwAAAAA=
+" fillcolor="#cfe2f3" strokeweight="1.5pt">
+  <v:textbox inset="91425emu,91425emu,91425emu,91425emu">
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=normal style='line-height:normal'><span style='font-size:14.0pt;
+     mso-bidi-font-size:10.0pt'><span style="mso-spacerun:yes">&nbsp;&nbsp;
+     </span>Text sent to screen</span></p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:oval><v:oval id="Oval_x0020_24" o:spid="_x0000_s1031" style='position:absolute;
+  left:3410100;top:3114675;width:1543200;height:1562099;visibility:visible;
+  mso-wrap-style:square;v-text-anchor:middle' o:gfxdata="UEsDBBQABgAIAAAAIQAyPL0++wAAAOIBAAATAAAAW0NvbnRlbnRfVHlwZXNdLnhtbJSRQU7DMBBF
+90jcwfIWJQ4sEEJNuiCwBATlACN7klgkY8tjQnt7Jm3ZIFTE0p55/z/Zq/V2GtWMiX2gWl+WlVZI
+NjhPfa3fNg/FjVacgRyMgbDWO2S9bs7PVptdRFZCE9d6yDneGsN2wAm4DBFJJl1IE2Q5pt5EsO/Q
+o7mqqmtjA2WkXOQlQzerFjv4GLO638r1wURwre4Oe0tVrSHG0VvIImqWqfmVSzjyCXAm98OuOJqV
+Qu7DefCRL44NT/I0yTtUz5DyI0ziYVxiwwNElJ3ytOdSN3ERus5bLNvErwv3V7gLn5Rw/m92K9gL
+zt/pZv9DzRcAAAD//wMAUEsDBBQABgAIAAAAIQCqi10N0wAAAI8BAAALAAAAX3JlbHMvLnJlbHOk
+kLFqAzEMhvdA38Fo7/mSoZQQX7ZC1pBCV2Hr7kzOlrHMNXn7uJRCL2TLoEG/0PcJ7faXMKmZsniO
+BtZNC4qiZefjYODz9PH6DkoKRocTRzJwJYF997LaHWnCUpdk9ElUpUQxMJaStlqLHSmgNJwo1knP
+OWCpbR50QnvGgfSmbd90/s+AbsFUB2cgH9wa1OmaqvmOHbzNLNyXxnLQ3PfePqJqGTHRV5gqBvNA
+xYDL8pvW05paoB+bN0+aHX/HI81L8U+Yaf7z6sUbuxsAAAD//wMAUEsDBBQABgAIAAAAIQAzLwWe
+QQAAADkAAAAQAAAAZHJzL3NoYXBleG1sLnhtbLKxr8jNUShLLSrOzM+zVTLUM1BSSM1Lzk/JzEu3
+VQoNcdO1UFIoLknMS0nMyc9LtVWqTC1Wsrfj5QIAAAD//wMAUEsDBBQABgAIAAAAIQBU0X/QxQAA
+ANsAAAAPAAAAZHJzL2Rvd25yZXYueG1sRI9Ba8JAFITvgv9heUJvuqnWqmlWqYWC9FBoquT6yL4m
+odm3aXbVxF/fFQSPw8x8wySbztTiRK2rLCt4nEQgiHOrKy4U7L/fx0sQziNrrC2Tgp4cbNbDQYKx
+tmf+olPqCxEg7GJUUHrfxFK6vCSDbmIb4uD92NagD7ItpG7xHOCmltMoepYGKw4LJTb0VlL+mx6N
+guwvOs62hz5juVj1n9v9bH75YKUeRt3rCwhPnb+Hb+2dVjB9guuX8APk+h8AAP//AwBQSwECLQAU
+AAYACAAAACEAMjy9PvsAAADiAQAAEwAAAAAAAAAAAAAAAAAAAAAAW0NvbnRlbnRfVHlwZXNdLnht
+bFBLAQItABQABgAIAAAAIQCqi10N0wAAAI8BAAALAAAAAAAAAAAAAAAAACwBAABfcmVscy8ucmVs
+c1BLAQItABQABgAIAAAAIQAzLwWeQQAAADkAAAAQAAAAAAAAAAAAAAAAACgCAABkcnMvc2hhcGV4
+bWwueG1sUEsBAi0AFAAGAAgAAAAhAFTRf9DFAAAA2wAAAA8AAAAAAAAAAAAAAAAAlwIAAGRycy9k
+b3ducmV2LnhtbFBLBQYAAAAABAAEAPUAAACJAwAAAAA=
+" fillcolor="#cfe2f3" strokeweight="1.5pt">
+  <v:textbox inset="91425emu,91425emu,91425emu,91425emu">
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=normal style='line-height:normal'><span style='font-size:14.0pt;
+     mso-bidi-font-size:10.0pt'><span style="mso-spacerun:yes">&nbsp;&nbsp;
+     </span>Wait for<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;
+     </span>new text</span></p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:oval><v:shapetype id="_x0000_t67" coordsize="21600,21600" o:spt="67"
+  adj="16200,5400" path="m0@0l@1@0@1,0@2,0@2@0,21600@0,10800,21600xe">
+  <v:stroke joinstyle="miter"/>
+  <v:formulas>
+   <v:f eqn="val #0"/>
+   <v:f eqn="val #1"/>
+   <v:f eqn="sum height 0 #1"/>
+   <v:f eqn="sum 10800 0 #1"/>
+   <v:f eqn="sum width 0 #0"/>
+   <v:f eqn="prod @4 @3 10800"/>
+   <v:f eqn="sum width 0 @5"/>
+  </v:formulas>
+  <v:path o:connecttype="custom" o:connectlocs="10800,0;0,@0;10800,21600;21600,@0"
+   o:connectangles="270,180,90,0" textboxrect="@1,0,@2,@6"/>
+  <v:handles>
+   <v:h position="#1,#0" xrange="0,10800" yrange="0,21600"/>
+  </v:handles>
+ </v:shapetype><v:shape id="Down_x0020_Arrow_x0020_25" o:spid="_x0000_s1032"
+  type="#_x0000_t67" style='position:absolute;left:3753075;top:2200275;width:457200;
+  height:914400;visibility:visible;mso-wrap-style:square;v-text-anchor:middle'
+  o:gfxdata="UEsDBBQABgAIAAAAIQAyPL0++wAAAOIBAAATAAAAW0NvbnRlbnRfVHlwZXNdLnhtbJSRQU7DMBBF
+90jcwfIWJQ4sEEJNuiCwBATlACN7klgkY8tjQnt7Jm3ZIFTE0p55/z/Zq/V2GtWMiX2gWl+WlVZI
+NjhPfa3fNg/FjVacgRyMgbDWO2S9bs7PVptdRFZCE9d6yDneGsN2wAm4DBFJJl1IE2Q5pt5EsO/Q
+o7mqqmtjA2WkXOQlQzerFjv4GLO638r1wURwre4Oe0tVrSHG0VvIImqWqfmVSzjyCXAm98OuOJqV
+Qu7DefCRL44NT/I0yTtUz5DyI0ziYVxiwwNElJ3ytOdSN3ERus5bLNvErwv3V7gLn5Rw/m92K9gL
+zt/pZv9DzRcAAAD//wMAUEsDBBQABgAIAAAAIQCqi10N0wAAAI8BAAALAAAAX3JlbHMvLnJlbHOk
+kLFqAzEMhvdA38Fo7/mSoZQQX7ZC1pBCV2Hr7kzOlrHMNXn7uJRCL2TLoEG/0PcJ7faXMKmZsniO
+BtZNC4qiZefjYODz9PH6DkoKRocTRzJwJYF997LaHWnCUpdk9ElUpUQxMJaStlqLHSmgNJwo1knP
+OWCpbR50QnvGgfSmbd90/s+AbsFUB2cgH9wa1OmaqvmOHbzNLNyXxnLQ3PfePqJqGTHRV5gqBvNA
+xYDL8pvW05paoB+bN0+aHX/HI81L8U+Yaf7z6sUbuxsAAAD//wMAUEsDBBQABgAIAAAAIQAzLwWe
+QQAAADkAAAAQAAAAZHJzL3NoYXBleG1sLnhtbLKxr8jNUShLLSrOzM+zVTLUM1BSSM1Lzk/JzEu3
+VQoNcdO1UFIoLknMS0nMyc9LtVWqTC1Wsrfj5QIAAAD//wMAUEsDBBQABgAIAAAAIQAT76FQxQAA
+ANsAAAAPAAAAZHJzL2Rvd25yZXYueG1sRI9Pa8JAFMTvBb/D8oTe6karNqauYoVAwZMa6PU1+5qE
+Zt+G7DZ//PTdQsHjMDO/Ybb7wdSio9ZVlhXMZxEI4tzqigsF2TV9ikE4j6yxtkwKRnKw300etpho
+2/OZuosvRICwS1BB6X2TSOnykgy6mW2Ig/dlW4M+yLaQusU+wE0tF1G0lgYrDgslNnQsKf++/BgF
+q/S02cTp7WPdv9Xj7SX7fKblSanH6XB4BeFp8Pfwf/tdK1is4O9L+AFy9wsAAP//AwBQSwECLQAU
+AAYACAAAACEAMjy9PvsAAADiAQAAEwAAAAAAAAAAAAAAAAAAAAAAW0NvbnRlbnRfVHlwZXNdLnht
+bFBLAQItABQABgAIAAAAIQCqi10N0wAAAI8BAAALAAAAAAAAAAAAAAAAACwBAABfcmVscy8ucmVs
+c1BLAQItABQABgAIAAAAIQAzLwWeQQAAADkAAAAQAAAAAAAAAAAAAAAAACgCAABkcnMvc2hhcGV4
+bWwueG1sUEsBAi0AFAAGAAgAAAAhABPvoVDFAAAA2wAAAA8AAAAAAAAAAAAAAAAAlwIAAGRycy9k
+b3ducmV2LnhtbFBLBQYAAAAABAAEAPUAAACJAwAAAAA=
+" fillcolor="#cfe2f3" strokeweight="1.5pt">
+  <v:stroke joinstyle="round"/>
+  <v:textbox inset="91425emu,91425emu,91425emu,91425emu">
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=normal style='line-height:normal'><o:p>&nbsp;</o:p></p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:shape><v:shapetype id="_x0000_t68" coordsize="21600,21600" o:spt="68"
+  adj="5400,5400" path="m0@0l@1@0@1,21600@2,21600@2@0,21600@0,10800,0xe">
+  <v:stroke joinstyle="miter"/>
+  <v:formulas>
+   <v:f eqn="val #0"/>
+   <v:f eqn="val #1"/>
+   <v:f eqn="sum 21600 0 #1"/>
+   <v:f eqn="prod #0 #1 10800"/>
+   <v:f eqn="sum #0 0 @3"/>
+  </v:formulas>
+  <v:path o:connecttype="custom" o:connectlocs="10800,0;0,@0;10800,21600;21600,@0"
+   o:connectangles="270,180,90,0" textboxrect="@1,@4,@2,21600"/>
+  <v:handles>
+   <v:h position="#1,#0" xrange="0,10800" yrange="0,21600"/>
+  </v:handles>
+ </v:shapetype><v:shape id="Up_x0020_Arrow_x0020_26" o:spid="_x0000_s1033"
+  type="#_x0000_t68" style='position:absolute;left:4210275;top:2200275;width:457200;
+  height:914400;visibility:visible;mso-wrap-style:square;v-text-anchor:middle'
+  o:gfxdata="UEsDBBQABgAIAAAAIQAyPL0++wAAAOIBAAATAAAAW0NvbnRlbnRfVHlwZXNdLnhtbJSRQU7DMBBF
+90jcwfIWJQ4sEEJNuiCwBATlACN7klgkY8tjQnt7Jm3ZIFTE0p55/z/Zq/V2GtWMiX2gWl+WlVZI
+NjhPfa3fNg/FjVacgRyMgbDWO2S9bs7PVptdRFZCE9d6yDneGsN2wAm4DBFJJl1IE2Q5pt5EsO/Q
+o7mqqmtjA2WkXOQlQzerFjv4GLO638r1wURwre4Oe0tVrSHG0VvIImqWqfmVSzjyCXAm98OuOJqV
+Qu7DefCRL44NT/I0yTtUz5DyI0ziYVxiwwNElJ3ytOdSN3ERus5bLNvErwv3V7gLn5Rw/m92K9gL
+zt/pZv9DzRcAAAD//wMAUEsDBBQABgAIAAAAIQCqi10N0wAAAI8BAAALAAAAX3JlbHMvLnJlbHOk
+kLFqAzEMhvdA38Fo7/mSoZQQX7ZC1pBCV2Hr7kzOlrHMNXn7uJRCL2TLoEG/0PcJ7faXMKmZsniO
+BtZNC4qiZefjYODz9PH6DkoKRocTRzJwJYF997LaHWnCUpdk9ElUpUQxMJaStlqLHSmgNJwo1knP
+OWCpbR50QnvGgfSmbd90/s+AbsFUB2cgH9wa1OmaqvmOHbzNLNyXxnLQ3PfePqJqGTHRV5gqBvNA
+xYDL8pvW05paoB+bN0+aHX/HI81L8U+Yaf7z6sUbuxsAAAD//wMAUEsDBBQABgAIAAAAIQAzLwWe
+QQAAADkAAAAQAAAAZHJzL3NoYXBleG1sLnhtbLKxr8jNUShLLSrOzM+zVTLUM1BSSM1Lzk/JzEu3
+VQoNcdO1UFIoLknMS0nMyc9LtVWqTC1Wsrfj5QIAAAD//wMAUEsDBBQABgAIAAAAIQD0ieTjwwAA
+ANsAAAAPAAAAZHJzL2Rvd25yZXYueG1sRI/dagIxFITvC75DOIJ3NVFEdGtW1KL0pqBrH+CQnP1p
+NyfLJtX17ZtCoZfDzHzDbLaDa8WN+tB41jCbKhDExtuGKw0f1+PzCkSIyBZbz6ThQQG2+ehpg5n1
+d77QrYiVSBAOGWqoY+wyKYOpyWGY+o44eaXvHcYk+0raHu8J7lo5V2opHTacFmrs6FCT+Sq+nYZd
+Q+eyWDzMSR0+24t6XRu7f9d6Mh52LyAiDfE//Nd+sxrmS/j9kn6AzH8AAAD//wMAUEsBAi0AFAAG
+AAgAAAAhADI8vT77AAAA4gEAABMAAAAAAAAAAAAAAAAAAAAAAFtDb250ZW50X1R5cGVzXS54bWxQ
+SwECLQAUAAYACAAAACEAqotdDdMAAACPAQAACwAAAAAAAAAAAAAAAAAsAQAAX3JlbHMvLnJlbHNQ
+SwECLQAUAAYACAAAACEAMy8FnkEAAAA5AAAAEAAAAAAAAAAAAAAAAAAoAgAAZHJzL3NoYXBleG1s
+LnhtbFBLAQItABQABgAIAAAAIQD0ieTjwwAAANsAAAAPAAAAAAAAAAAAAAAAAJcCAABkcnMvZG93
+bnJldi54bWxQSwUGAAAAAAQABAD1AAAAhwMAAAAA
+" fillcolor="#cfe2f3" strokeweight="1.5pt">
+  <v:stroke joinstyle="round"/>
+  <v:textbox inset="91425emu,91425emu,91425emu,91425emu">
+   <![if !mso]>
+   <table cellpadding=0 cellspacing=0 width="100%">
+    <tr>
+     <td><![endif]>
+     <div>
+     <p class=normal style='line-height:normal'><o:p>&nbsp;</o:p></p>
+     </div>
+     <![if !mso]></td>
+    </tr>
+   </table>
+   <![endif]></v:textbox>
+ </v:shape><w:wrap type="none"/>
+ <w:anchorlock/>
+</v:group><![endif]--><!--[if mso & !supportInlineShapes & supportFields]><v:shape
+ id="_x0000_i1034" type="#_x0000_t75" style='width:216.15pt;height:217.9pt'>
+ <v:imagedata croptop="-65520f" cropbottom="65520f"/>
+</v:shape><span style='mso-element:field-end'></span><![endif]--></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+line-height:115%'>Functionality Description:</span></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>After the LCD screen has been
+initialized, the software sends a line of code to the screen. It then waits for
+an arbitrary amount of time (for the moment), 3 sec, and then switches to a new
+line of text. The lines of code we used for this demonstration were ÒSampling
+dataÉÓ and ÒExporting dataÉÓ. </span></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+line-height:115%'>Design Decisions:</span></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>The text for the sampling and
+exporting data will be sent to the screen when a button is pressed on our box.
+This will then set a flag. When the flag is set, the data is sent to the
+screen. When the flag goes back to being low, the text is no longer sent to the
+screen.</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>Due to time constraints, the LCD
+screen subsystem was abandoned for the sake of other subsystems.</span></p>
+
+<p class=normal style='line-height:200%'><o:p>&nbsp;</o:p></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>System Integration: </span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>In the future the LCD screen will
+also be used to show the volume of the speaker, when the data is actually being
+sampled, and when the data is actually exporting to the computer. These
+attributes will be implemented when the connections between the different
+subsystems are made. The volume of the speaker will also be on an arbitrary
+scale that the group decides and is dependent on the other subsystems. The
+actual amount of time the text Òsampling dataÓ and Òexporting dataÓ will be on
+the screen is dependent on how fast we are actually doing these actions and
+will reflect those actions in real time. For code refer to Appendix A</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%;color:yellow;background:#999999'>Remove
+code below:</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>Code:</span></p>
+
+<p class=normal style='line-height:normal'><span style='font-size:10.0pt;
+font-family:"Courier New";mso-fareast-font-family:"Courier New";mso-bidi-font-family:
+"Courier New";color:green;background:white;mso-highlight:white'>/* <br>
+<span style="mso-spacerun:yes">&nbsp;</span>* File:<span
+style="mso-spacerun:yes">&nbsp;&nbsp; </span>newmain.c<br>
+<span style="mso-spacerun:yes">&nbsp;</span>* Author: jweisenb<br>
+<span style="mso-spacerun:yes">&nbsp;</span>*<br>
+<span style="mso-spacerun:yes">&nbsp;</span>* Created on February 18, 2015,
+3:54 PM<br>
+<span style="mso-spacerun:yes">&nbsp;</span>*/<br>
+<br>
+</span><span style='font-size:10.0pt;font-family:"Courier New";mso-fareast-font-family:
+"Courier New";mso-bidi-font-family:"Courier New";color:blue;background:white;
+mso-highlight:white'>#include</span><span style='font-size:10.0pt;font-family:
+"Courier New";mso-fareast-font-family:"Courier New";mso-bidi-font-family:"Courier New";
+background:white;mso-highlight:white'> <span style='color:#A31515'>&lt;stdio.h&gt;</span><br>
+<span style='color:blue'>#include</span> <span style='color:#A31515'>&lt;stdlib.h&gt;</span><br>
+<span style='color:blue'>#include</span> <span style='color:#A31515'>&lt;xc.h&gt;</span><br>
+<span style='color:blue'>#include</span> <span style='color:#A31515'>&quot;SDlib.h&quot;</span><br>
+<span style='color:blue'>#include</span> <span style='color:#A31515'>&quot;SDlib_LCD.h&quot;</span><br>
+<span style='color:blue'>#include</span> <span style='color:#A31515'>&quot;SDlib_delay.h&quot;</span><br>
+<span style='color:blue'>#include</span> <span style='color:#A31515'>&quot;configbitsrev2014vC.h&quot;</span><br>
+<br>
+<span style='color:blue'>#define</span> BUTTONFLAG PORTFbits.RF0<br>
+<br>
+<span style='color:green'>/*<br>
+<span style="mso-spacerun:yes">&nbsp;</span>* <br>
+<span style="mso-spacerun:yes">&nbsp;</span>*/</span><br>
+<span style='color:blue'>int</span> main(int argc, char** argv) {<br>
+<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>IEC0bits.T2IE=1; //
+interrupt enabled<br>
+<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>IFS0bits.T2IF=0;
+//Interrupt flag off <br>
+<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><br>
+<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>LCD_init(); //
+Initialize LCD<br>
+<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>serial_init(57600);<br>
+<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>set_output_device(2);
+//LCD screen <br>
+<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>LCD_clear();<br>
+<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><br>
+<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><span
+style='color:blue'>while</span> (1)<br>
+<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>{<br>
+<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>LCD_setpos(0,0);<br>
+<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>printf(&quot;Device Ready&quot;); //Home Screen<br>
+<span style="mso-spacerun:yes">&nbsp;</span>//<span
+style="mso-spacerun:yes">&nbsp;&nbsp; </span>if (IFS0bits.T2IF){<br>
+<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>//if(BUTTONFLAG){<br>
+<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>//<span
+style="mso-spacerun:yes">&nbsp; </span>IFS0bits.T2IF=1; //Interrupt flag on<br>
+<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><br>
+<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><span
+style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;</span>LCD_clear(); // Make
+sure nothing on screen<br>
+<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>LCD_setpos(0,0);<br>
+<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>printf(&quot;Sampling data...&quot;); //Written to screen<br>
+<br>
+<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>delay_ms(3000); //Arbitrary 10 sec<br>
+<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>LCD_clear();LCD_setpos(0,0);<br>
+<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>printf(&quot;Exporting data...&quot;);<br>
+<br>
+<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>delay_ms(3000); //Arbitrary 10 sec<br>
+<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>LCD_clear();LCD_setpos(0,0);<br>
+<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>printf(&quot;Speakers on...&quot;);<br>
+<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>LCD_clear();<br>
+<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>IFS0bits.T2IF=0; //Interrupt flag off<br>
+<span style="mso-spacerun:yes">&nbsp;&nbsp; </span>// }<br>
+<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>}<br>
+<br>
+<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span><span
+style='color:blue'>return</span> (EXIT_SUCCESS);<br>
+}</span></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<span style='font-size:11.0pt;mso-bidi-font-size:10.0pt;line-height:115%;
+font-family:Arial;mso-fareast-font-family:Arial;mso-bidi-font-family:Arial;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA'><br
+clear=all style='mso-special-character:line-break;page-break-before:always'>
+</span>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal><u><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+line-height:115%'>Subsystem Description: SPI</span></u></p>
+
+<p class=normal style='line-height:200%'><o:p>&nbsp;</o:p></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>Requirements:</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>The SPI needed to write to memory
+using an interrupt-driven scheme so that the write would be fast enough, in
+conjunction with the analog to digital conversion, to sample at a fast enough
+rate to analyze audio signals.</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>Functionality Description:</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>Upon initialization, the SPI would
+set up for the page write, which could write up to 256 bytes of data without
+having to change the chip enable bit or send more address bytes or commands to
+start the write.<span style="mso-spacerun:yes">&nbsp; </span>This would speed
+up the write process by up to five bytes per byte of data to be written,
+compared to the byte-program protocol.</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>Design Decisions:</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>In order to have enough memory to
+store up to 30 seconds for two tracks (filtered and unfiltered) of data, we
+decided to use a 64Mbit SPI.<span style="mso-spacerun:yes">&nbsp;
+</span>However, due to time constraints, this subsystem was ultimately not
+incorporated into the final design.</span></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<span style='font-size:11.0pt;mso-bidi-font-size:10.0pt;line-height:115%;
+font-family:Arial;mso-fareast-font-family:Arial;mso-bidi-font-family:Arial;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA'><br
+clear=all style='mso-special-character:line-break;page-break-before:always'>
+</span>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal><u><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+line-height:115%'>Subsystem Description: USB</span></u></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>Requirements:</span></p>
+
+<p class=normal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+line-height:115%'>Must deliver a stream of data from the microcontroller to the
+computer in a</span></p>
+
+<p class=normal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+line-height:115%'>format that the computer can save as a data file.</span></p>
+
+<p class=normal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+line-height:115%'>- open a connection to the USB port</span></p>
+
+<p class=normal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+line-height:115%'>- set attributes to properly read USB port</span></p>
+
+<p class=normal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+line-height:115%'>- read USB stream to a pipe</span></p>
+
+<p class=normal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+line-height:115%'>- find stop delimiter</span></p>
+
+<p class=normal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+line-height:115%'>- write all data up to the stop delimiter to the file</span></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+line-height:115%'>Flow chart:</span></p>
+
+<p class=normal align=center style='text-align:center'><span style='mso-no-proof:
+yes'><!--[if gte vml 1]><v:shape id="image13.png" o:spid="_x0000_i1033" type="#_x0000_t75"
+ style='width:461pt;height:266pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="test_files/image003.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=463 height=268
+src="test_files/image004.gif" v:shapes="image13.png"><![endif]></span></p>
+
+<p class=normal style='line-height:200%'><o:p>&nbsp;</o:p></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>Functionality description:</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>Given an incoming stream of data
+from the microcontroller, this software opens</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>a pipe from the USB port to which
+the microcontroller is connected.<span style="mso-spacerun:yes">&nbsp;
+</span>The</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>software checks chunks of the data
+for a stop delimiter.<span style="mso-spacerun:yes">&nbsp; </span>If the target
+file</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>does not exist, the program creates
+it.<span style="mso-spacerun:yes">&nbsp; </span>The program then appends the
+newly</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>read data to the end of the file
+and closes the file.</span></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>Design decisions:</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>Overview: This program was written
+in C for consistency's sake. That is the </span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>language that has been used to
+program the microcontroller, and the libraries </span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>are easy to use. The initial
+development took place on a Linux (Ubuntu)</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>operating system due to the ease of
+use of the compiler, system calls, etc. </span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>Now that the code has been written
+and shown to work in a programmer-friendly</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>environment, adding functionality
+for Windows and Mac will only require changes</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>to one function and the makefile.
+Additionally, MATLAB has some compatibility</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>with C, so using C should
+facilitate the integration of this program into the</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>computer sid of the user interface.</span></p>
+
+<p class=normal style='line-height:200%'><o:p>&nbsp;</o:p></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>Testing:</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>Linux: At this point, some
+information is printed to the terminal to show the</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>user that the data have been read
+properly. A test string of characters (a</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>known quantity) was sent from the
+microcontroller in a loop via USB. The</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>program read in the data, and upon
+finding a &quot;0&quot; stopped reading, wrote the</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>data to a file. After calling the
+&quot;cat&quot; command in the shell, it was visually</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>confirmed that the file contained
+the expected characters.</span></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>System integration:</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>The protocol on the microcontroller
+needed to read data from the analog to digital conversion output and send it to
+the USB.<span style="mso-spacerun:yes">&nbsp; </span>This was tested in a
+similar manner to the subsystem testing, using many samples from the ADC
+subsystem.<span style="mso-spacerun:yes">&nbsp; </span>Once these connections
+were confirmed to work, continuous samples were taken by plugging in a phone
+and using that as input.</span></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal><u><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+line-height:115%'>Subsystem Description: Filters</span></u></p>
+
+<p class=normal style='line-height:137%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:137%'>The filters subsystem was the base
+of the educational curriculum. Each filter was intended to show another aspect
+of the relationship between the frequency and time domains. The following
+filters were attempted during the design process. A diode distortion filter was
+the first built and tested. In the first implementation it consisted of two
+diodes facing in opposite directions. 1N4148 fast switching silicon diodes were
+used because that was the part that was available at the time of testing. A
+resistance value of 330 Ohms was arbitrarily selected for R1. The signal sine
+wave was supplied by signal generator mobile application from the &frac14; inch
+headphones jack. A Tektronix oscilloscope was used to observe the waveform
+characteristics of the filter. In the time domain, when a waveform has a
+voltage amplitude greater than the turn on voltage of the diode the voltage
+clips. Additional harmonic frequencies which are integer multiples of the
+original sine tone frequency are observed in the frequency domain. </span><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="image17.png" o:spid="_x0000_i1032"
+ type="#_x0000_t75" style='width:234pt;height:163pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="test_files/image005.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=236 height=165
+src="test_files/image006.gif" v:shapes="image17.png"><![endif]></span></p>
+
+<p class=normal style='line-height:137%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:137%'>The second filter built and tested
+was a treble booster. This filter was tested qualitatively by playing music
+from a phone as the input. The most audible artifact from the filtering was the
+high frequencies of the cymbal sounds on the drum set.</span></p>
+
+<p class=normal style='line-height:137%'><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+ id="image19.png" o:spid="_x0000_i1031" type="#_x0000_t75" style='width:468pt;
+ height:265pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="test_files/image007.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=470 height=267
+src="test_files/image008.gif" v:shapes="image19.png"><![endif]></span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:137%'>The
+following filters were designed and built using eagle without prior breadboard
+implementation and testing. The filters seemed simple enough that they would
+certainly work. The components were selected so that the time constant, R*C,
+value would filter frequencies within the audible range, less that 20kHz.<span
+style="mso-spacerun:yes">&nbsp; </span></span><!--[if gte vml 1]><v:shape id="image14.png"
+ o:spid="_x0000_s1026" type="#_x0000_t75" style='width:169pt;height:458pt;
+ rotation:5895249fd;visibility:visible;mso-wrap-style:square;
+ mso-left-percent:-10001;mso-top-percent:-10001;mso-position-horizontal:absolute;
+ mso-position-horizontal-relative:char;mso-position-vertical:absolute;
+ mso-position-vertical-relative:line;mso-left-percent:-10001;mso-top-percent:-10001'>
+ <v:imagedata src="test_files/image009.png" o:title=""/>
+ <w:wrap type="none"/>
+ <w:anchorlock/>
+</v:shape><![endif]--><![if !vml]><img width=471 height=182
+src="test_files/image010.gif" v:shapes="image14.png"><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:137%'>Once the
+components were mounted on the boards the circuits were tested by measuring the
+signal response in the time domain. The results showed that the filters didnÕt
+work. There were floating voltages at unexpected pins. The output showed an
+unexpected DC voltage without any input signal. There may have been
+inconsistencies with the pinout on the board and the pinout of the device
+itself. Comparison of these two factors were not taken into consideration prior
+to sending the boards to be printed.</span></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<span style='font-size:11.0pt;mso-bidi-font-size:10.0pt;line-height:115%;
+font-family:Arial;mso-fareast-font-family:Arial;mso-bidi-font-family:Arial;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA'><br
+clear=all style='mso-special-character:line-break;page-break-before:always'>
+</span>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal><u><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+line-height:115%'>Subsystem Description: Audio Input</span></u></p>
+
+<p class=normal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+line-height:115%'><span style="mso-spacerun:yes">&nbsp;</span></span></p>
+
+<p class=normal style='text-indent:.5in;line-height:200%'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>The audio
+input subsystem is required to take the analog audio signal from the mobile
+phone source and appropriately read in the signal so it is able to be modified
+by various filter/audio effects circuits.</span></p>
+
+<p class=normal style='text-indent:.5in;line-height:200%'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>The analog
+output of the mobile device audio signal is a quickly changing audio voltage
+signal that varies from roughly -440mV to 450mV at its maximum amplitude and is
+centered on zero volts. That is, without any amplification, the maximum audio
+signal amplitude is roughly 0.9 volts peak to peak (Vpp). This is simply read
+in with an audio jack to stereo wire connector, which then is connected
+directly into the breadboard so that the students can access the input signal.
+We chose this connector so that the students can see the audio signal being
+sent from the phone to the breadboard and get a better grasp on the idea that
+audio signals are voltages. This also gives the students flexibility in setting
+up the input signal on the breadboard in a way that lets them connect filters
+most effectively for them. </span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'><span
+style="mso-spacerun:yes">&nbsp; </span><span
+style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>This
+subsystem was tested by connecting a 3.5mm audio cable to the audio jack and
+reading the signal on the scope when connected to the other subsystems (namely
+the ADC level shifter and the audio out speaker).The input signal from the
+Samsung Galaxy S3 device was a simple sine wave generated from the mobile app <i
+style='mso-bidi-font-style:normal'>Signal Generator</i>[3]. The amplitude of
+sine wave was set to its maximum value on the app, and the volume on the phone
+was also set to its highest setting to produce the highest amplitude audio
+signal for testing. All voltage readings were made on a Tectronix<span
+style="mso-spacerun:yes">&nbsp; </span>MSO 3011 mixed signal oscilloscope.</span></p>
+
+<p class=normal style='line-height:200%'><u><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>Subsystem Description: ADC</span></u></p>
+
+<p class=normal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+line-height:115%'><span style="mso-spacerun:yes">&nbsp;</span></span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>The analog-to-digital converter
+subsystem is required to sample the audio signal either right after the
+audio-in subsystem prepares the signal for the audio effects subsystem, or
+after the audio effects subsystem itself. This way, students will be able to
+compare and contrast audio signals before and after the effects circuits are
+applied, and they can view the effects in both the time and frequency domain.
+This subsystem is also responsible for centering the audio signal around 1.65V
+to adjust for the signal range on the microcontroller ADC. Thus, this subsystem
+has both hardware and software components to convert the analog audio signal
+data into a digital signal that can be sent to a separate device.</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>The following DC bias circuit is
+what shifts the audio signal voltage offset from 0V to 1.65 volts.</span></p>
+
+<p class=normal align=center style='text-align:center;line-height:200%'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="image18.png" o:spid="_x0000_i1029"
+ type="#_x0000_t75" style='width:351pt;height:265pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="test_files/image011.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=353 height=267
+src="test_files/image012.gif" v:shapes="image18.png"><![endif]></span></p>
+
+<p class=normal align=center style='text-align:center;line-height:200%'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>Figure XX
+&#8211; DC biasing circuit</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>We
+chose this circuit because it effectively produces a signal whose range can be
+fully sampled by the microcontroller ADC and also takes full advantage of the
+microcontroller ADC range given the maximum audio levels from our phone. Also,
+this circuit has very minimal frequency response, so the sampled audio should
+faithfully characterize the frequency components from the phone generated audio
+signal.</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'><span
+style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>This circuit operates by setting a DC reference voltage of 1.65V using a
+voltage divider and unity gain amplifier to set the DC bias. This is done by
+resistors R10 and R11 in the above schematic. The purpose of the unity gain
+circuit (IC2B op amp) is to separate the 1.65V from being affected by any
+resistive/capacitive elements in the rest of the circuit. Once the reference
+voltage is set, the rest of the circuit forms an op amp level shifter centered
+about 1.65V and with a maximum AC component of 3.3Vpp. This gain is set by
+resistors R12, R13, R14, R15, with the gain calculated by the following:</span></p>
+
+<p class=normal style='margin-left:.5in;text-indent:.5in;line-height:200%'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>A(gain) =
+R15 / R14 = 1.2kohms / 0.33kohms = 3.64 V / V.</span></p>
+
+<p class=normal style='text-indent:.5in;line-height:200%'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>Therefore,
+when a 0.9Vpp AC signal is sent from the phone to the circuit, the signal is
+first shifted up to 1.65V DC bias, then amplified by 3.64 V / V to yield an AC
+signal of 3.3Vpp. </span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'><span
+style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>We can easily obtain the 3.3V, 5V, and gnd sources aspects of the
+circuit from the microcontroller and USB power, which is ideal because these
+are also the reference voltages we are using for the microcontroller ADC. </span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'><span
+style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Once the signal is set to take full advantage of the microcontroller
+ADC, the signal needs to be sampled by the microcontroller. This is done by
+running a C-program to set specific microcontroller pins to read in an analog
+signal, then setting reference voltages, sample times, and conversion times to
+appropriately sample the audio signal at a high enough rate in order to capture
+the frequency components we need. Because most music is sampled at 44.1 kHz, we
+want our circuit to complete its sampling and conversion at least a couple times
+faster than this. This will leave time to possibly send each sample
+individually during each sample period while still retaining the frequency
+components we want to show.</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'><span
+style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>The following flow chart shows the process of our ADC microcontroller program:</span></p>
+
+<p class=normal align=center style='text-align:center;line-height:200%'><span
+style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape id="image15.png" o:spid="_x0000_i1028"
+ type="#_x0000_t75" style='width:263pt;height:192pt;visibility:visible;
+ mso-wrap-style:square'>
+ <v:imagedata src="test_files/image013.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=265 height=194
+src="test_files/image014.gif" v:shapes="image15.png"><![endif]></span></p>
+
+<p class=normal align=center style='text-align:center;line-height:200%'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>Figure XX
+&#8211; ADC code flow chart.</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'><span
+style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Initializing the ADC involves setting the configuration bits to set
+sample/conversion time, reference voltages, buffer size, and multiplexer mode.
+First, we select manual sampling in order to easily control our sample speed
+and monitor the process for other tasks (such as sending out the data
+serially). We set the <span style='background:white;mso-highlight:white'>AD1CON3bits.ADCS</span>
+bit to 3 in order to set the conversion time from the peripheral clock bus to
+200 nanoseconds, which gives the microcontroller time to do the analog-digital
+conversion, but is also fast enough to capture all of our spectrum. The AVdd
+and AVss pins on the microcontroller are set as our reference voltages in order
+to give the ADC a consistent reference voltage from the board directly without
+worrying about any other external voltage sources. We also select the program
+to start conversion when the sample bit is cleared, and format the data as an
+unsigned integer.</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%;background:white;mso-highlight:white'><span
+style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>The actual conversion process in the block diagram occurs by first
+selecting a microcontroller pin for the analog input. Then, the sample bit is
+set high and the program delays for 1 microsecond. This gives the
+microcontroller time to sample, but we are still well above our minimum sample
+rate of 44.1 kHz. Then the sample bit is cleared, thus starting the conversion
+process and outputting to the next block.</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%;background:white;mso-highlight:white'><span
+style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>The output of the conversion needs to be scaled from quantized bits to a
+relevant voltage level, so we multiply the output of the ADC by 3.3V / 1024
+bits to scale to the reference voltage of 3.3 volts. Lastly, this unsigned
+integer is sent serially to a computer and then the process repeats until all
+the data is collected.</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%;background:white;mso-highlight:white'><span
+style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>We test the ACD system by first setting the proper gain on the audio-in
+subsystem to produce an audio signal of 3.3Vpp. This inputs into the DC bias circuit
+and we then run the ADC program while displaying the ADC scaled value on the
+LCD screen. First, we input no signal through the amplifier, and the screen
+reads 1.65 volts, which we expect as there is only the DC bias signal. When we
+increase the amplifier gain and output an audio signal, the screen value starts
+rapidly oscillating between values around 0.5 and 2.8. This shows that the
+signal is successfully DC biased and the ADC rapidly converting the analog
+signal to a digital signal.</span></p>
+
+<p class=normal style='line-height:200%'><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>System
+Integration Testing</span></b></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>Hardware integration:</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'><span
+style="mso-spacerun:yes">&nbsp;</span></span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>The first part of testing our
+subsystem integration involved getting the audio in subsystem, ADC op amp level
+shifter circuit, analog filters, and audio output circuit/speakers all
+functioning properly together. Originally, all of this was tested on breadboard
+circuits reprsenting what we would eventually place on our board. The signals
+were viewed on the oscilloscope, and power signals were produced by either an
+external power source (+5V) or from the senior design kit board (+3.3V, Vdd).</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'><span
+style="mso-spacerun:yes">&nbsp;</span></span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>First, we tested reading in an
+audio signal from the phone and running the signal through the op amp level
+shifter in the ADC subsystem. Originally, this proved difficult, as the audio
+signal fro m the phone would disappear when connected directly to the op amp
+level shifter. Thus, we connected the phone audio signal to a unity gain
+amplfier (IC5A op amp) in order to ensure that the signal was consistently
+being fed into the op amp level shifter. The resulting level shifter output,
+when the phone output signal was the maximum 0.9Vpp AC signal, was a 3.3Vpp
+signal with a 1.65V DC bias. This is what we expected, but there was also top
+end clipping on the signal at a voltage below 3.3V. This seemed strange, as the
+Vcc pin on the op amp was set to 3.3V, so clipping below this level is not
+something we expected. However, raising the the Vcc top end range to 5V fixed
+this problem, for whatever reason.</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'><span
+style="mso-spacerun:yes">&nbsp;</span></span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>After the audio input and op amp
+level shifter were successfully integrated, the next step was to introduce the
+audio output circuit/speakers. Originally, we tried connecting the audio input
+straight into the speaker output while the op amp level shifter was still
+connected, which sometimes worked but sometimes, as with the level shifter
+testing, the audio signal went away. To combat this, we placed another unity
+gain amplifier before the signal went to the speaker. This also proved useful
+when connecting filters to the speaker, as we did not need to worry about the
+effect the filter elements would have on the speaker. The unity gain was
+actually an inverting amplfier set with a gain of 1. This was done so that the
+gain could easily be changed if the speaker volume range is too high or too
+soft. As it turned out, the unity gain provided an acceptable audio range, as
+the signal could be heard easily, but it was not disturbingly loud.</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'><span
+style="mso-spacerun:yes">&nbsp;</span></span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>So far, the system was able to read
+in a signal from the phone, play the sound at a reasonable volume through the
+speaker, and shift the signal to the ADC range, all at the same time. The last
+hardware integration process was to insert a filter after the audio input,
+create another op amp level shifter for the filtered signal (in addition to the
+original input signal), and insert a switch that can direct either the original
+audio or the filtered signal to the speaker output.</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'><span
+style="mso-spacerun:yes">&nbsp;</span></span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>This integration involved adding yet
+another unity gain for between the filter output and a duplicated op amp level
+circuit that performs the same function as the oringal level shifter. Thus, a
+total of three new op amps were added to the system. Next, we added a three-way
+switch between the speaker output unity gain amplifier and the
+original/filtered signals, so that we could easily switch the speaker output
+between the two signals.</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'><span
+style="mso-spacerun:yes">&nbsp;</span></span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>To test this, we constructed a
+simple RC lowpass filter circuit and fed the original audio signal into the
+filter. When we played music through the phone, we were able to hear the higher
+frequency components (such as cymbal crash noises) at a distinctly lower volume
+when we switched the speaker circuit to play the filtered output. By switching
+quickly between the original signal and the filtered signal, we were able to
+actually hear the differences in the frequency components of the two signals.
+We confirmed this by viewing both signals on the scope and playing a sine wave
+through the phone. At high frequencies, the filtered signal is significantly
+smaller amplitude, while the two signals were very similar in amplitude at low
+frequencies. Thus, we confirmed that both the filter worked and the switch was
+successfully integrated into the system.</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'><span
+style="mso-spacerun:yes">&nbsp;</span></span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>Lastly, we tested the op amp level
+shifter signals. While the original shifted audio signal was the same as we had
+observed when originally testing the level shifter, the filtered signal showed
+a lower amplitude, but the same DC bias as the original signal. This confirms that
+the two op amp level shifter circuits were effective at preparing both signals
+for the microcontroller ADC. Thus, from a hardware standpoint, all of our
+system requirements were met before designing our board.</span></p>
+
+<p class=normal style='line-height:200%'><o:p>&nbsp;</o:p></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>Software</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>The software components that needed
+to be put together were the timer, and making the analog to digital conversion
+interrupt-driven.<span style="mso-spacerun:yes">&nbsp; </span>Originally, the
+plan was to have memory on the board, as well, so the SPI protocols were
+initially part of the integration testing, but due to time constraints this
+part of the code was abandoned.<span style="mso-spacerun:yes">&nbsp; </span>To
+test the timer initially, the kit boardÕs LEDÕs were used.<span
+style="mso-spacerun:yes">&nbsp; </span>The kit board was the testing board,
+because for the most part, any bugs in the code would manifest themselves using
+the kit board, and we could isolate those bugs to software issues rather than
+wondering if whatever problem arose was rather a hardware problem.<span
+style="mso-spacerun:yes">&nbsp; </span>Once the code was working, we could test
+it on our board, knowing that any bugs would be due to the interface between
+the software and hardware.</span></p>
+
+<p class=normal style='line-height:200%'><o:p>&nbsp;</o:p></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>Software and Hardware</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>Once the timer was working, the
+next step was to make the ADC interrupt-driven.<span
+style="mso-spacerun:yes">&nbsp; </span>On each timer interrupt, a new ADC
+conversion was triggered.<span style="mso-spacerun:yes">&nbsp; </span>Upon
+completion of that conversion, the data was sent to the USB.<span
+style="mso-spacerun:yes">&nbsp; </span>After printing that data out in the
+terminal (using the cat command), the values that displayed were compared to
+the values expected.<span style="mso-spacerun:yes">&nbsp; </span>Since we did
+not know exactly how fast we were sampling (there was an active wait in the
+case that the previous ADC conversion was not finished), the initial tests were
+with the input grounded and connected to VDD.<span
+style="mso-spacerun:yes">&nbsp; </span>Ultimately, when an audio signal was the
+input, the values did oscillate as expected.</span></p>
+
+<span style='font-size:11.0pt;mso-bidi-font-size:10.0pt;line-height:115%;
+font-family:Arial;mso-fareast-font-family:Arial;mso-bidi-font-family:Arial;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA'><br
+clear=all style='mso-special-character:line-break;page-break-before:always'>
+</span>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal style='line-height:200%'><o:p>&nbsp;</o:p></p>
+
+<p class=normal style='line-height:200%'><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>Users
+Manual/Installation Manual</span></b></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>PC Software Setup:</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>This program must be run on
+Linux.<span style="mso-spacerun:yes">&nbsp; </span>(A terminal emulator may
+work as well, but performance is not guaranteed.)<span
+style="mso-spacerun:yes">&nbsp; </span>Put the software in a working directory
+(call it Work/).<span style="mso-spacerun:yes">&nbsp; </span>In Work/, enter
+the command ÒmakeÓ.<span style="mso-spacerun:yes">&nbsp; </span>Then, enter the
+command Òsudo ./readSerialPortÓ.</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>Troubleshooting:</span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>Alternatively, if you do not want
+to worry about which directory you are in, simply enter the command Òsudo cat
+&lt;serial device&gt; &gt;&gt; &lt;output file name&gt;Ó.<span
+style="mso-spacerun:yes">&nbsp; </span>&lt;serial device&gt; is how the computer
+recognizes the USB device plugged in.</span></p>
+
+<p class=normal style='line-height:200%'><o:p>&nbsp;</o:p></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>Hardware setup:</span></p>
+
+<p class=normalCxSpMiddle style='margin-left:.5in;mso-add-space:auto;
+text-indent:-.25in;line-height:200%;mso-list:l1 level1 lfo2'><![if !supportLists]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'><span
+style='mso-list:Ignore'>1.)<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>Plug in
+both USB connectors to computer with Linux operating system<o:p></o:p></span></p>
+
+<p class=normalCxSpMiddle style='margin-left:1.0in;mso-add-space:auto;
+text-indent:-.25in;line-height:200%;mso-list:l1 level2 lfo2'><![if !supportLists]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'><span
+style='mso-list:Ignore'>a.)<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>Both board
+power LEDs should light up if on<o:p></o:p></span></p>
+
+<p class=normalCxSpMiddle style='margin-left:.5in;mso-add-space:auto;
+text-indent:-.25in;line-height:200%;mso-list:l1 level1 lfo2'><![if !supportLists]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'><span
+style='mso-list:Ignore'>2.)<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>Verify that
+the +5V, -5V, and GND pins are properly connected to their corresponding
+labeled pins on the breadboard<o:p></o:p></span></p>
+
+<p class=normalCxSpMiddle style='margin-left:1.0in;mso-add-space:auto;
+text-indent:-.25in;line-height:200%;mso-list:l1 level2 lfo2'><![if !supportLists]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'><span
+style='mso-list:Ignore'>a.)<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>Use DMM to
+test if necessary <o:p></o:p></span></p>
+
+<p class=normal style='line-height:200%'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;line-height:200%'>How to test if system is working:</span></p>
+
+<p class=normalCxSpMiddle style='margin-left:.5in;mso-add-space:auto;
+text-indent:-.25in;line-height:200%;mso-list:l0 level1 lfo1'><![if !supportLists]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'><span
+style='mso-list:Ignore'>1.)<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>Connect
+phone to breadboard via the provided audio cable<o:p></o:p></span></p>
+
+<p class=normalCxSpMiddle style='margin-left:.5in;mso-add-space:auto;
+text-indent:-.25in;line-height:200%;mso-list:l0 level1 lfo1'><![if !supportLists]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'><span
+style='mso-list:Ignore'>2.)<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>Using
+ÒSignal GeneratorÓ phone app, play a 1kHz sine wave with maximum amplitude and
+the volume turned to maximum<o:p></o:p></span></p>
+
+<p class=normalCxSpMiddle style='margin-left:1.0in;mso-add-space:auto;
+text-indent:-.25in;line-height:200%;mso-list:l0 level2 lfo1'><![if !supportLists]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'><span
+style='mso-list:Ignore'>a.)<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>Turn off
+speaker if too loud<o:p></o:p></span></p>
+
+<p class=normalCxSpMiddle style='margin-left:.5in;mso-add-space:auto;
+text-indent:-.25in;line-height:200%;mso-list:l0 level1 lfo1'><![if !supportLists]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'><span
+style='mso-list:Ignore'>3.)<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>Using the
+grey buttons, set the Òrecording timeÓ on the LCD display to 2 seconds<o:p></o:p></span></p>
+
+<p class=normalCxSpMiddle style='margin-left:.5in;mso-add-space:auto;
+text-indent:-.25in;line-height:200%;mso-list:l0 level1 lfo1'><![if !supportLists]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'><span
+style='mso-list:Ignore'>4.)<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>Press the
+red record button<o:p></o:p></span></p>
+
+<p class=normalCxSpMiddle style='margin-left:.5in;mso-add-space:auto;
+text-indent:-.25in;line-height:200%;mso-list:l0 level1 lfo1'><![if !supportLists]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'><span
+style='mso-list:Ignore'>5.)<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>On your
+computer, locate the newly created .dat file in your local directory<o:p></o:p></span></p>
+
+<p class=normalCxSpMiddle style='margin-left:.5in;mso-add-space:auto;
+text-indent:-.25in;line-height:200%;mso-list:l0 level1 lfo1'><![if !supportLists]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'><span
+style='mso-list:Ignore'>6.)<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>Move the
+the .dat file to your working MATLAB directory and rename it to Òsine.datÓ<o:p></o:p></span></p>
+
+<p class=normalCxSpMiddle style='margin-left:.5in;mso-add-space:auto;
+text-indent:-.25in;line-height:200%;mso-list:l0 level1 lfo1'><![if !supportLists]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'><span
+style='mso-list:Ignore'>7.)<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>With the
+Òsine.datÓ file in your MATLAB working directory, run the following MATLAB
+script:<o:p></o:p></span></p>
+
+<p class=normal style='line-height:normal'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'>clear all;</span></p>
+
+<p class=normal style='line-height:normal'><o:p>&nbsp;</o:p></p>
+
+<p class=normal style='line-height:normal'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'>load sine.dat;</span></p>
+
+<p class=normal style='line-height:normal'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'>sine = transpose(sine);</span></p>
+
+<p class=normal style='line-height:normal'><o:p>&nbsp;</o:p></p>
+
+<p class=normal style='line-height:normal'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'>plot(t,sine) %Plot time domain signal</span></p>
+
+<p class=normal style='line-height:normal'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'><span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>axis([0 4/tone_freq -1.2 1.2]); %Only view 4 periods of time domain</span></p>
+
+<p class=normal style='line-height:normal'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'><span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>title('Time domain signal');</span></p>
+
+<p class=normal style='line-height:normal'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'><span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>xlabel('Time (s)');</span></p>
+
+<p class=normal style='line-height:normal'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'>sound(sine,fs); %Listen to the audio of the signal</span></p>
+
+<p class=normal style='line-height:normal'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'>y=fft(sine,length(t)); %Compute the FFT</span></p>
+
+<p class=normal style='line-height:normal'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'><span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>f=fs/length(y)*(1:length(y)); %scaling frequency axis by fs</span></p>
+
+<p class=normal style='line-height:normal'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'><span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>figure; </span></p>
+
+<p class=normal style='line-height:normal'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'><span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>plot(f,real(y)) %Plot frequency domain signal</span></p>
+
+<p class=normal style='line-height:normal'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'><span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>axis([0.95*tone_freq tone_freq*1.05 0 3500]) </span></p>
+
+<p class=normal style='line-height:normal'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'><span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>title('Frequency domain spectrum');</span></p>
+
+<p class=normal style='line-height:normal'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'><span style="mso-spacerun:yes">&nbsp;&nbsp;
+</span>xlabel('Frequency (Hz)');</span></p>
+
+<p class=normal style='line-height:normal'><o:p>&nbsp;</o:p></p>
+
+<p class=normalCxSpMiddle style='margin-left:.5in;mso-add-space:auto;
+text-indent:-.25in;line-height:200%;mso-list:l0 level1 lfo1'><![if !supportLists]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'><span
+style='mso-list:Ignore'>8.)<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>After
+running the script, you should see the following charts:<o:p></o:p></span></p>
+
+<p class=normal style='line-height:200%'><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
+ id="image05.png" o:spid="_x0000_i1027" type="#_x0000_t75" style='width:468pt;
+ height:205pt;visibility:visible;mso-wrap-style:square'>
+ <v:imagedata src="test_files/image015.png" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=470 height=207
+src="test_files/image016.gif" v:shapes="image05.png"><![endif]></span></p>
+
+<p class=normal style='line-height:200%'><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>To-Market
+Design Changes</span></b></p>
+
+<p class=normal style='text-indent:.5in;line-height:200%'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>In order to
+take the Freshman Module and bring it to a point where it could be successfully
+implemented as a module for the First Year Engineering Course, there need to be
+several design changes implemented. The first design change which must be
+implemented is to have the device be detected by the computer. Currently, the
+microcontroller is not detected by the Serial Port of the computer. Instead,
+the USB port is only able to provide power through the USB cable for the
+device.<span style="mso-spacerun:yes">&nbsp; </span>For the device to be
+programmable, the device needs to be recognized by the computer. This detection
+must also be implemented cross-platform, meaning it must occur in Windows, Mac
+OS, and Linux. </span></p>
+
+<p class=normal style='text-indent:.5in;line-height:200%'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>The next
+step in our design change is to develop an external casing for the
+microcontroller which is user-friendly for the student. This will serve a dual
+function. First, the microcontroller will be black-boxed for the user such that
+the user is not intimidated by the array of wires and devices sticking out of
+the board for them to interface with without any previous experience using
+microcontrollers. This will make the experience more pleasant for end users
+while preventing a fear factor from settling into students. Second, the casing
+will allow the design to evolve from a rudimentary packaging of a pizza box to
+a durable structure which will protect the microcontroller from basic, wear and
+tear damage to dropping. </span></p>
+
+<p class=normal style='text-indent:.5in;line-height:200%'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>The way in
+which the casing is envisioned the microcontroller board will have three
+buttons to interface with: an up button and down button to change the length of
+recording to more or less in one-second units from a base of ten seconds; and a
+red record/export button which will initiate the recording process and then
+export the information through the USB to the computer for analysis once the
+recording process has finished. Pins from the microcontroller will be brought
+up to the surface of the casing to allow for interaction with the
+microcontroller, and the casing will cold the microcontroller in place while
+having slots for the programmer and the USB port plugin, which serves the
+dual-feature of powering the device and serving as the information export
+pathway for the recorded information. </span></p>
+
+<p class=normal style='text-indent:.5in;line-height:200%'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>There will
+also be a slot in the casing for a headphone jack to plug in a speaker or a
+headphone, and another slot in the top in which the volume control slider is
+visible. Next to the volume control the case will have a breadboard attached to
+it so the user can set up their own personal filters and interact with the
+boardÕs input pins. In this way, the user can compare the effects of their
+distorted signal from the original signal, outputting the audio of the
+distorted signal through the audio jack or sampling the distorted signal. </span></p>
+
+<p class=normal style='text-indent:.5in;line-height:200%'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>The third
+change made in our design would be universalize the method of interaction with
+the active filters made in addition to the breadboard. Having the method of
+interaction with those boards be connecting wires to the appropriate pins
+allows more room for error for the user, and to minimize that error we suggest
+having a universal port which would connect ground to ground, Vdd to Vdd, and
+other corresponding pins to the appropriate spots between the actual
+microcontroller and the active filter boards. This port would consist of having
+a pre made wire which plugs into the pins in the microcontroller and the filter
+boards only one way, thus preventing errors when using the port and making the
+experience much more user friendly. </span></p>
+
+<p class=normal style='text-indent:.5in;line-height:200%'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>The last
+design change to implement would be adding more methods of interaction with the
+microcontroller. During the presentation, we added a Fortune Teller which had
+copper tape on the sides such that when the Fortune Teller was used it closed
+switches. If we attached the leads of the device to sound-producing devices we
+could generate sounds and have the student use this more fun method of
+interaction to engage with the microcontroller. Developing other methods of
+interaction such as origami with copper tape on it to close switches or drums
+which switched the filter being actively used would allow the user to have a
+more pleasant and fun experience interacting with the microcontroller. </span></p>
+
+<p class=normal style='text-indent:.5in;line-height:200%'><o:p>&nbsp;</o:p></p>
+
+<p class=normal style='text-indent:.5in;line-height:200%'><o:p>&nbsp;</o:p></p>
+
+<span style='font-size:11.0pt;mso-bidi-font-size:10.0pt;line-height:115%;
+font-family:Arial;mso-fareast-font-family:Arial;mso-bidi-font-family:Arial;
+mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA'><br
+clear=all style='mso-special-character:line-break;page-break-before:always'>
+</span>
+
+<p class=normal><o:p>&nbsp;</o:p></p>
+
+<p class=normal style='line-height:200%'><o:p>&nbsp;</o:p></p>
+
+<p class=normal style='line-height:200%'><b style='mso-bidi-font-weight:normal'><span
+style='font-size:14.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>Conclusions</span></b></p>
+
+<p class=normal style='text-indent:.5in;line-height:200%'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>Overall,
+there were a number of issues that prevented us from ever fully meeting all of
+our requirements. First, the computer was never able to recognize the serial
+USB driver on our board. This prevented us from ever reading in the serial data
+from the USB on our custom board and made it impossible for us to export ADC
+digital data from our board. Also, we were never able to get the op amp level
+shifter circuit on our board to function correctly, whether it was because of
+schematic flaw or soldering issues. Finally, we were never able to get the
+microcontroller ADC running anywhere near the 44.1 kHz that we need to sample
+the audio signal when integrated with the USB protocol. Because of these three
+issues, our system was never able to export audio data to a computer that could
+then further analyze the data in MATLAB or solely rely on our custom board
+design. These were important features that we were never able to fully realize.</span></p>
+
+<p class=normal style='text-indent:.5in;line-height:200%'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>However,
+our system still had features that freshman engineering students could use to
+engage with electrical engineering concepts. Our system allows students to plug
+in there phone/media device, connect to a breadboard, experiment with analog
+filters using either basic circuit elements or our provided filters, and
+actually hear the difference in the audio signal when the effect is applied.
+While they may have some experience with electrical components, our system
+shows them a useful and accessible application (audio) for these ideas. From
+here, they can easily experiment with and become more interested in electrical
+engineering ideas.</span></p>
+
+<p class=normal style='text-indent:.5in;line-height:200%'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;line-height:200%'>If we were
+to go back and change our approach to this project, the key difference would be
+the timing of creating our board design. Because we waited so long to get our
+first design done, we only had one chance to get one board version built. This
+made it extremely difficult to correct any errors with the board (USB, op
+amps), and we didnÕt have the option of building another board at that point.
+Also, we would have looked into the SPI protocol much earlier in order to give
+ourselves more time in figuring out ADC system integration. In the end, we
+wound up just running out of time.</span></p>
+
+<p class=normal><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+line-height:115%'>As far as continuing our project, the next key steps would be
+to fix the ADC protocol to get it sampling at 44.1 kHz (probably involves
+integrating SPI protocol), fix up any board design issues, and make the overall
+presentation much more neater and accessible. While we were able to lay the
+groundwork for the students interaction with audio technology, there is still
+the potential to create an even more immersive and accessible experience for
+freshman engineering students interested in electrical engineering.</span><br
+clear=all style='mso-special-character:line-break;page-break-before:always'>
+</p>
+                    <!-- 2404,3931 -->
                 </div>
             </div>
 
         </div>
         <!-- /.container -->
-
     </div>
     <!-- /.content-section-a -->
 
